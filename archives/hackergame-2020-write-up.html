@@ -1,0 +1,1779 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://peropero.disqus.com">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Hackergame-2020 Write-up | 
+        
+        黯梦萦辰
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="这应该是我第一次参加 CTF，写下一些自己的做题思路吧">
+    <meta name="keywords" content="黯梦萦辰,iyume,tinyume,博客">
+    <meta name="theme-color" content="#0080ff">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.css?bOqB0GgeGicuWzuzm+5PQg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #0080ff;
+    text-decoration: none
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0080ff !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0080ff !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0080ff !important;
+  }
+
+  .toTop {
+    background: #0080ff !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #0080ff;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #0080ff;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #0080ff;
+  }
+
+  .post-toc a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        #scheme-Paradox .social-btn{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .sidebar .sidebar-nav li a {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .mdl-button {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .MD-burger-icon {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        #scheme-Paradox .material-layout .mdl-card__media{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        a:hover{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        body{
+            background-image: url(https://i.loli.net/2019/09/13/5ZTKgCIyevLOEJ1.png);
+            cursor: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-click-2.svg),auto;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="黯梦萦辰">
+    <meta name="msapplication-starturl" content="http://blog.tinyume.com/archives/hackergame-2020-write-up.html">
+    <meta name="msapplication-navbutton-color" content="#0080ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="黯梦萦辰">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.tinyume.com/archives/hackergame-2020-write-up.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Hackergame-2020 Write-up | 黯梦萦辰">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <meta property="og:description" content="这应该是我第一次参加 CTF，写下一些自己的做题思路吧">
+    
+
+    
+        <meta property="article:published_time" content="Thu Nov 05 2020 21:17:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat Nov 07 2020 18:14:25 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://blog.tinyume.com/archives/hackergame-2020-write-up.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script id="myjsonid" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "http://blog.tinyume.com/archives/hackergame-2020-write-up.html",
+        "headline": "Hackergame-2020 Write-up",
+        "datePublished": "Thu Nov 05 2020 21:17:00 GMT+0800",
+        "dateModified": "Sat Nov 07 2020 18:14:25 GMT+0800",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://i.loli.net/2020/11/07/M8jvAhqg76UBNea.jpg"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "黯梦萦辰",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            },
+            "description": "仰望半月的夜空"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "黯梦萦辰",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            }
+        },
+        "keywords": "黯梦萦辰,iyume,tinyume,博客",
+        "description": "这应该是我第一次参加 CTF，写下一些自己的做题思路吧"
+    }
+</script>
+<script>
+    roundsum = Math.round(Math.random()*"19"+1);
+    testvar = document.getElementById("myjsonid");
+</script>
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W2644L9');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+    
+    <!-- jsDelivr DisqusJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2644L9" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Post TOC -->
+
+
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Preface"><span class="post-toc-number">1.</span> <span class="post-toc-text">Preface</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Q-List"><span class="post-toc-number">2.</span> <span class="post-toc-text">Q List</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#签到"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">签到</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#猫咪问答"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">猫咪问答++</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2048"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">2048</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一闪而过的-Flag"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">一闪而过的 Flag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#从零开始的记账工具人"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">从零开始的记账工具人</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自复读的复读机"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">自复读的复读机</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#以上不详细讲了，进入解题吧"><span class="post-toc-number">2.6.1.</span> <span class="post-toc-text">以上不详细讲了，进入解题吧</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#小小的题外话"><span class="post-toc-number">2.6.2.</span> <span class="post-toc-text">小小的题外话</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#233-同学的-Docker"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">233 同学的 Docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其它的"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">其它的</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#狗狗银行"><span class="post-toc-number">2.9.</span> <span class="post-toc-text">狗狗银行</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.10.</span> <span class="post-toc-text">总结</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+<!-- Post Module -->
+<div class="material-post_container">
+
+    <div class="material-post mdl-grid">
+        <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+            <!-- Post Header(Thumbnail & Title) -->
+            
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://i.loli.net/2020/11/07/M8jvAhqg76UBNea.jpg)">
+    
+            <p class="article-headline-p">
+                Hackergame-2020 Write-up
+            </p>
+        </div>
+
+
+
+
+
+            
+            <!-- Paradox Post Info -->
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>黯梦萦辰</strong>
+        <span>11月 05, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACWElEQVR42u3a24rDMAwFwPz/T3dfF5aGIyl20u74qYRcPClE5ljH66vHgYeHh4eHh4eH9zDeEY/f55cf+ec+58d7c8PDw8PbyUsml5z/DpDfrfoq8fDw8O7lJcXg/PxqUUkKQz43PDw8vGfyEvD53fDw8PD+Gy+f9Pm1V70sPDw8vHt51Yih9/gee1PWgoeHhxfzeoHCnt+37e/h4eHhveE1G5uCSVSLyuuigYeHh7ead/746kjAvQaFPBDBw8PDW81LYPPykIQO1abVct3Dw8PDu4g3uWlvGywJgqvBBB4eHt69vASTxwdVxnwmeHh4eHt4vcfnTQDzzbBRjIuHh4e3hZeHp3mMW42Me0g8PDy81bx806u6HZVcmxSbasHAw8PDW83Lp5XHDdWwI1myF5q68PDw8LbwekfyRqjqYj0vUeXWATw8PLyLeNVQoBpY5CVnHvXi4eHhreYln/6rgt1es0K+vMbDw8O7izeJWasL6/x4vrDGw8PD28ObxKa9pXm1bOR/Ax4eHt5qXh4c9FoKJrFCc8MMDw8PbwsvX0DPP9y9awthMR4eHt5GXq9poPopn7SxNvf38PDw8BbwkuCguiXWe0Gbmq7w8PDwBrzqmLRYVdtYe1t0eHh4eKt5RzzyD33OnjfI4uHh4d3F6xWDattB3qwwKkh4eHh4G3m9uGEy0UkMgYeHh/fpvLw9K1+m9woPHh4e3tN4vSaD/M7VF4qHh4d3Ly8JI66KHvJXk78sPDw8vJ286qZUdYO/GuZW/wA8PDy8nbzvG3h4eHh4eHh4eA8YP7GgDDc0OS/LAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Hackergame-2020 Write-up&url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html&pic=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://twitter.com/intent/tweet?text=Hackergame-2020 Write-up&url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html&via=黯梦萦辰" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.tinyume.com/archives/hackergame-2020-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://plus.google.com/share?url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html&title=Hackergame-2020 Write-up" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=黯梦萦辰&title=Hackergame-2020 Write-up&summary=仰望半月的夜空&pics=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://telegram.me/share/url?url=http://blog.tinyume.com/archives/hackergame-2020-write-up.html&text=Hackergame-2020 Write-up" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+            
+            <style>
+                .post-preface {
+                    margin: 15px 0 0 4%;
+                }
+
+                .post-preface-count,
+                .post-preface-minread,
+                .post-preface-categories {
+                    border-radius: 10px;
+                    margin: 7px 3px 5px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: white;
+                    display: inline-block;
+                    letter-spacing: 1px;
+                }
+
+                .post-preface-count {
+                    background-color: #ff4e6a;
+                }
+
+                .post-preface-minread {
+                    background-color: #ffaa73;
+                }
+
+                .post-preface-categories {
+                    background-color: #3cdc82;
+                }
+
+                .category-link {
+                    text-decoration: none;
+                }
+
+                .category-link:hover,
+                .category-link:link,
+                .category-link:visited,
+                .category-link:active {
+                    color: white;
+                }
+
+                .post-preface-icons {
+                    filter: invert(100%);
+                }
+            </style>
+            <div class="post-preface">
+                <span class="post-preface-count">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-count.svg">
+                    </i>
+                    &nbsp;5.7k字
+                </span>
+                <span class="post-preface-minread">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-minread.svg">
+                    </i>
+                    &nbsp;大约26分钟
+                </span>
+                
+                <span class="post-preface-categories">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-categories-1.svg">
+                    </i>
+                    &nbsp;<a class="category-link" href="/categories/代码/">代码<span class="category-count">10</span></a>, <a class="category-link" href="/categories/日常/">日常<span class="category-count">10</span></a>
+                </span>
+                <script>
+                    for (i = 0; i < document.getElementsByClassName("category-link").length; i++) {
+                        document.getElementsByClassName("category-link")[i].innerHTML = document.getElementsByClassName(
+                            "category-link")[i].innerHTML.replace(/[0-9]/g, '');
+                    }
+                </script>
+                
+            </div>
+            <!-- Post Content -->
+            <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>这应该是我第一次参加 CTF，写下一些自己的做题思路吧</p>
+<a id="more"></a>
+
+<h2 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h2><p>此前从来没参加过 CTF、信安赛之类的，真要说类似的就是解一些过年时我所关注的各位大佬发的红包谜题了。</p>
+<p>反正就一直对 CTF 抱有很大的念想。虽说 USTC 这个只有个人赛，不过早就听说其难度老少皆宜了，大学后可支配时间也多了，作为我的第一次比赛正好。</p>
+<p>大佬们就没必要看了（</p>
+<h2 id="Q-List"><a href="#Q-List" class="headerlink" title="Q List"></a>Q List</h2><ul>
+<li>签到</li>
+<li>猫咪问答++</li>
+<li>2048</li>
+<li>一闪而过的 Flag</li>
+<li>从零开始的记账工具人</li>
+<li>超简单的世界模拟器(2)</li>
+<li>从零开始的火星文生活</li>
+<li>自复读的复读机(2)</li>
+<li>233 同学的字符串工具</li>
+<li>233 同学的 Docker</li>
+<li>从零开始的 HTTP 链接</li>
+<li>来自一教的图片</li>
+<li>超简陋的 OpenGL 小程序</li>
+<li>生活在博弈树上(2)</li>
+<li>来自未来的信笺</li>
+<li>狗狗银行</li>
+<li>超基础的数理计算器</li>
+<li>永不溢出的计算器</li>
+<li>普通的身份认证器</li>
+<li>超精巧的数字论证器</li>
+<li>超自动的开箱模拟器</li>
+<li>室友的加密硬盘</li>
+<li>超简易的网盘服务器</li>
+<li>超安全的代理服务器(2)</li>
+<li>证验码</li>
+<li>动态链接库检查器</li>
+<li>超精准的宇宙射线模拟器</li>
+<li>超迷你的挖矿模拟器</li>
+<li>Flag 计算机</li>
+<li>中间人(2)</li>
+<li>不经意传输(2)</li>
+</ul>
+<h3 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h3><blockquote>
+<p>选手要多少个 flag，我就给多少个 flag，绿色背景，红色加粗，显眼的位置，标准的格式，这都不叫送，那还有什么叫做送。<br>点击 「打开/下载题目」 按钮，打开 flag 提取器，获取第一个 flag 吧！</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/11/05/pzZdqPi69kGKu8y.png" alt></p>
+<p>直接滑动是滑不到<code>1</code>的</p>
+<p>让我们打开控制台看看</p>
+<p><img src="https://i.loli.net/2020/11/05/52XQa8pzIlBW9mn.png" alt></p>
+<p>定位到滑动块的元素，可以发现这个<code>step</code>属性值很奇怪，把它给改成<code>1</code>、<code>0.5</code>、<code>0.1</code>之类的值再滑动一下，就发现可以定位到 <code>1</code> 了，再点提取</p>
+<p>第一个 Flag 就得到了</p>
+<h3 id="猫咪问答"><a href="#猫咪问答" class="headerlink" title="猫咪问答++"></a>猫咪问答++</h3><blockquote>
+<p>这题其实我是留到第二天才做的</p>
+</blockquote>
+<p><a href="https://i.loli.net/2020/11/05/pfAlS3bKj7hHmoa.png" rel="noopener external nofollow noreferrer" target="_blank">点此查看题目截图</a></p>
+<p>此题考察搜索引擎的使用能力。</p>
+<p>先说说答案吧，从第一问到第五问分别是<code>12</code>、<code>256</code>、<code>9</code>、<code>9</code>、<code>17098</code>。</p>
+<p>我当时没能查到第一题和第二题，第四题一开始用错成了谷歌全景，后来被朋友指点才发现要用百度全景。</p>
+<p>这是当时用 Python 写的遍历</p>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
+import time
+import requests
+
+bs = webdriver.Firefox()
+bs.get(&quot;http://202.38.93.111:10001/?token=1294%3AMEYCIQDGGgsw4ZIS8VYoonINuZNHwWagU8HonbAS8xibpRsb8QIhAMtC8zWSEbqwPOgmgaix0hzT%2Bho30JdIC8fp%2B1Uojwdg&quot;)
+
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[1]/div/div[2]/input&quot;).click()
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[1]/div/div[2]/input&quot;).send_keys(str(0))
+time.sleep(0.2)
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[2]/div/div[2]/input&quot;).click()
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[2]/div/div[2]/input&quot;).send_keys(str(0))
+time.sleep(0.2)
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[3]/div/div[2]/input&quot;).click()
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[3]/div/div[2]/input&quot;).send_keys(str(0))
+time.sleep(0.2)
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[4]/div/div[2]/input&quot;).click()
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[4]/div/div[2]/input&quot;).send_keys(str(0))
+time.sleep(0.2)
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[5]/div/div[2]/input&quot;).click()
+bs.find_element_by_xpath(&quot;/html/body/form/div/div[5]/div/div[2]/input&quot;).send_keys(str(0))
+time.sleep(0.2)
+bs.find_element_by_xpath(&quot;/html/body/form/div/input&quot;).click()
+time.sleep(1)
+
+# 用眼睛看吧，不想写字符串识别了
+for i in range(12, 23):
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[2]/div/div[2]/input&quot;).click()
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[2]/div/div[2]/input&quot;).send_keys(str(i))
+    time.sleep(0.2)
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[3]/div/div[2]/input&quot;).click()
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[3]/div/div[2]/input&quot;).send_keys(str(256))
+    time.sleep(0.2)
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[4]/div/div[2]/input&quot;).click()
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[4]/div/div[2]/input&quot;).send_keys(str(9))
+    time.sleep(0.2)
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[5]/div/div[2]/input&quot;).click()
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[5]/div/div[2]/input&quot;).send_keys(str(9))
+    time.sleep(0.2)
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[6]/div/div[2]/input&quot;).click()
+    bs.find_element_by_xpath(&quot;/html/body/form/div/div[6]/div/div[2]/input&quot;).send_keys(str(17098))
+    time.sleep(0.2)
+    print(i)
+    bs.find_element_by_xpath(&quot;/html/body/form/div/input&quot;).click()
+    time.sleep(1)
+# keyboard interrupt 后第一问答案为 12
+</code></pre><blockquote>
+<p>写的很丑，但既然用到了，那就写进 Write-up</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/11/06/FR7QMYHPUn3ilNj.png" alt></p>
+<p>最终得到第二题的 Flag</p>
+<h3 id="2048"><a href="#2048" class="headerlink" title="2048"></a>2048</h3><blockquote>
+<p>要实现 FLXG，你需要过人的智慧，顽强的意志，和命运的眷属。只有在 2048 的世界里证明自己拥有这些宝贵的品质，实现「大成功」，你才有资格扛起 FLXG 的大旗。</p>
+</blockquote>
+<p>一个并不寻常的 2048</p>
+<p>我一开始真的就玩了起来…然后玩到<code>炸毁金矿</code>我心态就跟着炸了，这 TM 怎么还没结束啊（</p>
+<p>我当时也挺呆的，就写了个脚本让它自己跑…emm</p>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException
+import time
+import requests
+# 打开firefox，并访问2048游戏界面
+bs = webdriver.Firefox()
+bs.get(&quot;http://202.38.93.111:10005/&quot;)
+bs.find_element_by_name(&quot;token&quot;).click()
+bs.find_element_by_name(&quot;token&quot;).send_keys(&quot;1294:MEYCIQDGGgsw4ZIS8VYoonINuZNHwWagU8HonbAS8xibpRsb8QIhAMtC8zWSEbqwPOgmgaix0hzT+ho30JdIC8fp+1Uojwdg&quot;)
+bs.find_element_by_xpath(&quot;/html/body/form/input[2]&quot;).click()
+html = bs.find_element_by_tag_name(&#39;html&#39;)
+
+while True:
+    # 每四个方向操作后判断游戏是否结束
+    print(&#39;send up,right,down,left&#39;)
+    html.send_keys(Keys.UP)
+    time.sleep(0.2)
+    html.send_keys(Keys.RIGHT)
+    time.sleep(0.2)
+    html.send_keys(Keys.DOWN)
+    time.sleep(0.2)
+    html.send_keys(Keys.LEFT)
+    time.sleep(0.2)
+    game_over = bs.find_element_by_xpath(&quot;/html/body/div/div[3]/div/p&quot;)
+    if game_over.text == &#39;FLXG 永不放弃！&#39;:
+        #score = bs.find_element_by_class_name(&#39;score-container&#39;)    #当前得分
+        #print(&#39;game over, score is %s&#39; % score.text)
+        #print(&#39;wait 3 seconds, try again&#39;)
+        #time.sleep(3)
+        # 游戏结束后，等待3秒，自动点击try again重新开始
+        print(&quot;重新开始&quot;)
+        try_again = bs.find_element_by_class_name(&#39;retry-button&#39;)
+        try_again.click()
+</code></pre><p>然后丢到后台没理它，开始做下一题了</p>
+<blockquote>
+<p>Two thousand years later…</p>
+</blockquote>
+<p>当我翻到后台——</p>
+<p><img src="https://i.loli.net/2020/11/05/yYrAFqGbuva5PKx.png" alt></p>
+<p>WTF？跑到了 5436 还没结果时我就知道我方法错了</p>
+<p>View-source 走起</p>
+<p><img src="https://i.loli.net/2020/11/05/5DaNYxegl7RjcQP.png" alt><br>诶这不是赤裸裸的提示嘛</p>
+<p>点进去看看<br><img src="https://i.loli.net/2020/11/05/zQgDj395It7FB2A.png" alt><br>看到这里我就知道脚本永远跑不出来了</p>
+<p>再往下翻翻<br><img src="https://i.loli.net/2020/11/05/o6yi9xf5ZcMCSXs.png" alt><br>原来是 js 跳转，那我们直接把<code>url</code>拿出来就行了，可这个<code>url</code>有点奇怪，里面有个函数，拿到控制台跑一下试试</p>
+<p><img src="https://i.loli.net/2020/11/05/sil8qUzjNCvWSGI.png" alt><br>成功获取了真正的<code>url</code>！输入网址回车</p>
+<p>得到第三题的 Flag</p>
+<h3 id="一闪而过的-Flag"><a href="#一闪而过的-Flag" class="headerlink" title="一闪而过的 Flag"></a>一闪而过的 Flag</h3><blockquote>
+<p>flag 来了，可是我什么也看不见！</p>
+</blockquote>
+<p>先下载文件</p>
+<p><img src="https://i.loli.net/2020/11/06/pIFYix1yEhCAjsG.png" alt></p>
+<p>直接双击运行只会看到黑框出现一下就消失了</p>
+<ul>
+<li><p>第一种方法：直接快速截屏，肉眼识别</p>
+</li>
+<li><p>第二种方法：在命令行运行文件</p>
+</li>
+</ul>
+<p>这里采用第二种</p>
+<p><img src="https://i.loli.net/2020/11/06/iu18QkLMeKd23fc.png" alt></p>
+<p>复制</p>
+<p>得到第四题的 Flag</p>
+<h3 id="从零开始的记账工具人"><a href="#从零开始的记账工具人" class="headerlink" title="从零开始的记账工具人"></a>从零开始的记账工具人</h3><blockquote>
+<p>这不是很简单吗？电子表格里面一拖动就算出来了</p>
+</blockquote>
+<p>考察搜索引擎使用以及小脚本的编写</p>
+<p>先把题目下载下来</p>
+<p><img src="https://i.loli.net/2020/11/06/OWnagBTKFYqHN6Z.png" alt></p>
+<p>先看看<code>bills.xlsx</code>，里面是 1000 行人民币大写金额，那么题目要求就是全部转换小写求和了</p>
+<p>这题我一开始就想到了<code>Python</code>，又是我最熟悉的大数据分析，于是直接把<code>bills.xlsx</code>上传到了树莓派的内网<code>notebook</code>服务器上</p>
+<p>首先需要找一个人民币大写转小写的函数做轮子，再用数量乘金额并求和</p>
+<p>代码如下</p>
+<pre><code>import numpy as np
+import pandas as pd
+import re
+def aoligeiganle(amount):
+    chinese_num = {&#39;零&#39;: 0, &#39;壹&#39;: 1, &#39;贰&#39;: 2, &#39;叁&#39;: 3, &#39;肆&#39;: 4, &#39;伍&#39;: 5, &#39;陆&#39;: 6, &#39;柒&#39;: 7, &#39;捌&#39;: 8, &#39;玖&#39;: 9}
+    chinese_amount = {&#39;分&#39;: 0.01, &#39;角&#39;: 0.1, &#39;元&#39;: 1, &#39;拾&#39;: 10, &#39;佰&#39;: 100, &#39;仟&#39;: 1000, &#39;圆&#39;: 1}
+    amount_float = 0
+    if &#39;亿&#39; in amount:
+        yi = re.match(r&#39;(.+)亿.*&#39;, amount).group(1)
+        amount_yi = 0
+        for i in chinese_amount:
+            if i in yi:
+                amount_yi += chinese_num[yi[yi.index(i) - 1]] * chinese_amount[i]
+        if yi[-1] in chinese_num.keys():
+            amount_yi += chinese_num[yi[-1]]
+        amount_float += amount_yi * 100000000
+        amount = re.sub(r&#39;.+亿&#39;, &#39;&#39;, amount, count=1)
+    if &#39;万&#39; in amount:
+        wan = re.match(r&#39;(.+)万.*&#39;, amount).group(1)
+        amount_wan = 0
+        for i in chinese_amount:
+            if i in wan:
+                amount_wan += chinese_num[wan[wan.index(i) - 1]] * chinese_amount[i]
+        if wan[-1] in chinese_num.keys():
+            amount_wan += chinese_num[wan[-1]]
+        amount_float += amount_wan * 10000
+        amount = re.sub(r&#39;.+万&#39;, &#39;&#39;, amount, count=1)
+
+    amount_yuan = 0
+    for i in chinese_amount:
+        if i in amount:
+            if amount[amount.index(i) - 1] in chinese_num.keys():
+                amount_yuan += chinese_num[amount[amount.index(i) - 1]] * chinese_amount[i]
+    amount_float += amount_yuan
+
+    return amount_float
+
+df = pd.read_excel(&#39;./bills.xlsx&#39;, &#39;Sheet1&#39;)
+
+raw_price_list = []
+price_list = []
+num_list = np.array(df[&#39;数量&#39;])
+for i in range(0,1000):
+    raw_price_list.append(aoligeiganle(df[&#39;单价&#39;][i]))
+raw_price_list = np.array(raw_price_list)
+sum(np.multiply(num_list, raw_price_list))
+</code></pre><p>这里其实麻烦也挺多的，很后面才发现找来的这个函数不完整，没有对<code>拾</code>开头汉字金额的进行处理</p>
+<p><img src="https://i.loli.net/2020/11/06/S4duyZ5mxzRWa2P.png" alt></p>
+<p>于是在函数尾部加上以下代码</p>
+<pre><code>if &#39;拾&#39; in amount[0]:
+        amount_float += 10
+</code></pre><p>最终运算结果是这样的</p>
+<p><img src="https://i.loli.net/2020/11/06/DZtu5snPmXKgJ2Y.png" alt></p>
+<p>答案<code>12422.75</code>，这就是第五题的 Flag 值了</p>
+<p>得到第五题 Flag</p>
+<h3 id="自复读的复读机"><a href="#自复读的复读机" class="headerlink" title="自复读的复读机"></a>自复读的复读机</h3><blockquote>
+<p>能够复读其他程序输出的程序只是普通的复读机。<br>顶尖的复读机还应该能复读出自己的源代码。<br>什么是国际复读机啊（战术后仰）</p>
+</blockquote>
+<p>这题应该是我耗时最长的题目了，不过题目本身还是非常有意思的</p>
+<p>先来读题</p>
+<blockquote>
+<p>你现在需要编写两个只有一行 Python 代码的顶尖复读机：<br>满足两个条件分别对应了两个 flag</p>
+<ul>
+<li>其中一个要输出代码本身的逆序（即所有字符从后向前依次输出）</li>
+<li>另一个是输出代码本身的 sha256 哈希值，十六进制小写</li>
+</ul>
+</blockquote>
+<p>遇事不懂，首先谷歌</p>
+<p>Quine 是什么？</p>
+<blockquote>
+<p>A quine is a computer program which takes no input and produces a copy of its own source code as its only output. The standard terms for these programs in the computability theory and computer science literature are “self-replicating programs”, “self-reproducing programs”, and “self-copying programs”.<br>—-Wiki</p>
+</blockquote>
+<p>简而言之就是打印出代码本身</p>
+<p>看来 Quine 就是我们所需要的了</p>
+<p>找到以下文章供参考</p>
+<p><a href="http://littledva.cn/article-24/" rel="noopener external nofollow noreferrer" target="_blank">http://littledva.cn/article-24/</a></p>
+<p>还是打开我最熟悉的<code>notebook</code>，一步步来解析题目吧！</p>
+<pre><code>a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;+a)*2+c)
+</code></pre><p>先把范例拿进去试试，的确输出了代码本身</p>
+<p>然后解析一下这段代码的原理</p>
+<ul>
+<li>代码只有一个<code>print</code>函数</li>
+<li>代码可以拆成以下三部分<ol>
+<li>a=chr(39);c=”+a)*2+c)”;print((‘</li>
+<li>a=chr(39);c=”+a)*2+c)”;print((‘</li>
+<li>+a)*2+c)</li>
+</ol>
+</li>
+<li><code>print</code>的层级<ol>
+<li>‘a=chr(39);c=”+a)*2+c)”;print((‘</li>
+<li>(‘1’+a)*2</li>
+<li>(‘1’+a)*2+c</li>
+</ol>
+</li>
+</ul>
+<p>仔细看看就可以明白代码自复读的原理了</p>
+<h4 id="以上不详细讲了，进入解题吧"><a href="#以上不详细讲了，进入解题吧" class="headerlink" title="以上不详细讲了，进入解题吧"></a>以上不详细讲了，进入解题吧</h4><blockquote>
+<p>第一题：输出代码本身的逆序（即所有字符从后向前依次输出）</p>
+</blockquote>
+<p>我们知道<code>Python</code>字符串逆序有以下两种方法（其余不介绍）：</p>
+<ul>
+<li>str[::-1]</li>
+<li>‘’.join(reversed(str))</li>
+</ul>
+<p>显然第一个看起来简单好写，从第一个入手</p>
+<pre><code>a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;+a)*2+c)
+</code></pre><p>我们要输出逆序，那就直接在<code>print</code>最后加个<code>[::-1]</code>试试呗</p>
+<pre><code>a=chr(39);c=&quot;+a)*2+c)&quot;;print(((&#39;a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;+a)*2+c)[::-1])
+# 输出 )c+2*)a+&#39;((tnirp;&quot;)c+2*)a+&quot;=c;)93(rhc=a&#39;((tnirp;&quot;)c+2*)a+&quot;=c;)93(rhc=a
+# 正序 a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;a=chr(39);c=&quot;+a)*2+c)&quot;;print((&#39;+a)*2+c)
+</code></pre><p>少了<code>[::-1]</code>和一对括号，那就加到<code>c</code>里面去</p>
+<pre><code>a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((&#39;a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((&#39;+a)*2+c)[::-1])
+# 输出 )]1-::[)c+2*)a+&#39;(((tnirp;&quot;)]1-::[)c+2*)a+&quot;=c;)93(rhc=a&#39;(((tnirp;&quot;)]1-::[)c+2*)a+&quot;=c;)93(rhc=a
+# 正序 a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((&#39;a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((&#39;+a)*2+c)[::-1])
+</code></pre><p>完成！它输出了自身的倒序！</p>
+<p>可这还不够，我们把它丢到<code>web executor</code>试试</p>
+<pre><code>Your code is:
+&#39;a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((\&#39;a=chr(39);c=&quot;+a)*2+c)[::-1])&quot;;print(((\&#39;+a)*2+c)[::-1])&#39;
+
+Output of your code is:
+&#39;)]1-::[)c+2*)a+\&#39;(((tnirp;&quot;)]1-::[)c+2*)a+&quot;=c;)93(rhc=a\&#39;(((tnirp;&quot;)]1-::[)c+2*)a+&quot;=c;)93(rhc=a\n&#39;
+</code></pre><p>它发生了什么？多了个<code>\n</code>！</p>
+<p>其实我看到这里犯了个迷糊，既然你输出<code>\n</code>那我也输出一个<code>\n</code>不就是了吗（大声）<del>不</del></p>
+<p>然后有了以下代码</p>
+<pre><code>a=chr(39);b=chr(92)+&quot;n&quot;;c=&quot;+a)*2+c)[::-1]+b)&quot;;print(((&#39;a=chr(39);b=chr(92)+&quot;n&quot;;c=&quot;+a)*2+c)[::-1]+b)&quot;;print(((&#39;+a)*2+c)[::-1]+b)
+</code></pre><p>然后…</p>
+<pre><code>Your code is:
+&#39;a=chr(39);b=chr(92)+&quot;n&quot;;c=&quot;+a)*2+c)[::-1]+b)&quot;;print(((\&#39;a=chr(39);b=chr(92)+&quot;n&quot;;c=&quot;+a)*2+c)[::-1]+b)&quot;;print(((\&#39;+a)*2+c)[::-1]+b)&#39;
+
+Output of your code is:
+&#39;)b+]1-::[)c+2*)a+\&#39;(((tnirp;&quot;)b+]1-::[)c+2*)a+&quot;=c;&quot;n&quot;+)29(rhc=b;)93(rhc=a\&#39;(((tnirp;&quot;)b+]1-::[)c+2*)a+&quot;=c;&quot;n&quot;+)29(rhc=b;)93(rhc=a\\n\n&#39;
+</code></pre><p>我就忍不住笑了 hhh</p>
+<p>后来我才想到是<code>print</code>自带的换行啊，那我加个<code>end=&#39;&#39;</code>不就行了吗</p>
+<p>于是正确代码如下——</p>
+<pre><code>a=chr(39);c=&quot;+a)*2+c)[::-1],end=&quot;+a*2+&quot;)&quot;;print(((&#39;a=chr(39);c=&quot;+a)*2+c)[::-1],end=&quot;+a*2+&quot;)&quot;;print(((&#39;+a)*2+c)[::-1],end=&#39;&#39;)
+</code></pre><p><img src="https://i.loli.net/2020/11/06/5YKdA9vHisSmODh.png" alt></p>
+<p>得到此题第一个 Flag</p>
+<blockquote>
+<p>第二题：输出代码本身的 sha256 哈希值，十六进制小写</p>
+</blockquote>
+<p>此题难度高一点</p>
+<p>先贴出源代码</p>
+<pre><code>import hashlib;a=chr(39);c=&quot;+a)*2+c+a+&quot;;d=a+&quot;+d).encode()).hexdigest(),end=&quot;+a*2+&quot;)&quot;;print(hashlib.sha256(((&#39;import hashlib;a=chr(39);c=&quot;+a)*2+c+a+&quot;;d=a+&quot;+d).encode()).hexdigest(),end=&quot;+a*2+&quot;)&quot;;print(hashlib.sha256(((&#39;+a)*2+c+a+&#39;.encode()).hexdigest())&#39;+d).encode()).hexdigest(),end=&#39;&#39;)
+</code></pre><p>就随便讲讲思路吧，前面其实挺好构造的，主要是后面那一块</p>
+<p>这个构造就是靠眼力，哪里多了个单引号，哪里少了个括号，添添补补就完事了。</p>
+<p>构造<code>d</code>的原理和构造<code>c</code>的原理是一样的</p>
+<p>构造原型是这样的——</p>
+<pre><code>import hashlib;print(hashlib.sha256(&quot;codeself&quot;.encode()).hexdigest())
+</code></pre><p><code>codeself</code>就是输出这个代码本身了</p>
+<p>在进行构造时，可以把<code>codeself</code>写成如下形式方便参考</p>
+<pre><code>a=chr(39)
+c=&quot;+a)*2+c+a+&quot;
+d=a+&quot;+d).encode()).hexdigest(),end=&quot;+a*2+&quot;)&quot;;
+print((&#39;import hashlib;a=chr(39);c=&quot;+a)*2+c+a+&quot;;d=a+&quot;+d).encode()).hexdigest(),end=&quot;+a*2+&quot;)&quot;;print(hashlib.sha256(((&#39;+a)*2+c+a+&#39;.encode()).hexdigest())&#39;+d,end=&#39;&#39;)
+</code></pre><p>一般来说，只要这里输出和你的源代码一样，那这个题目就完成了</p>
+<p>然后放到<code>web executor</code></p>
+<p><img src="https://i.loli.net/2020/11/06/nulRX6h31i98Hsx.png" alt></p>
+<p>得到此题第二个 Flag</p>
+<h4 id="小小的题外话"><a href="#小小的题外话" class="headerlink" title="小小的题外话"></a>小小的题外话</h4><p>当时做这题时周末已经结束了，于是我用思修课加一节晚自习，靠手写把这两题硬生生写出来的，用了整整四张草稿纸。<br><img src="https://i.loli.net/2020/11/06/dclWbRTk6yEOXPa.jpg" alt></p>
+<h3 id="233-同学的-Docker"><a href="#233-同学的-Docker" class="headerlink" title="233 同学的 Docker"></a>233 同学的 Docker</h3><blockquote>
+<p>既然已经删掉了，应该不会被人找出来吧？</p>
+</blockquote>
+<p>我本人并未使用过<code>Docker</code>，因此解这题并没有用到什么特别高级的技巧或者命令</p>
+<p>先把镜像拉下来</p>
+<pre><code>sudo docker pull 8b8d3c8324c7/stringtool
+</code></pre><p>查看一下修改历史</p>
+<pre><code>sudo docker history 8b8d3c8324c7/stringtool
+</code></pre><p><img src="https://i.loli.net/2020/11/06/LCGN6Dmo57wahKZ.png" alt></p>
+<p>第二行这个<code>flag.txt</code>明显就是我们需要的了</p>
+<p>进入<code>docker</code>主目录</p>
+<pre><code>cd /var/lib/docker
+</code></pre><p>直接搜索<code>flag.txt</code></p>
+<pre><code>sudo find . | grep flag.txt
+</code></pre><p><img src="https://i.loli.net/2020/11/06/geqpa78cIlAN3Vr.png" alt></p>
+<p>出现了两个结果，分别<code>cat</code>一下看看</p>
+<pre><code>sudo cat ./overlay2/a81374850a078b714197906a329e0250980bb2d44506c274e367c1e65e0af83d/diff/code/flag.txt
+sudo cat ./overlay2/1595e998716bd50a416f17e04ac40a819e138974da1463cab6428319794c42e8/diff/code/flag.txt
+</code></pre><p><img src="https://i.loli.net/2020/11/06/9SZWPEXBHVRFCGL.png" alt></p>
+<p>在第二个文件中发现了我们需要的 Flag</p>
+<h3 id="其它的"><a href="#其它的" class="headerlink" title="其它的"></a>其它的</h3><h3 id="狗狗银行"><a href="#狗狗银行" class="headerlink" title="狗狗银行"></a>狗狗银行</h3><blockquote>
+<p>你能在狗狗银行成功薅到羊毛吗？</p>
+</blockquote>
+<p>先说明这题我并没能解出来，后来才听我朋友说要用<code>burp</code></p>
+<blockquote>
+<p>不对，没解出来能算进<code>Write-up</code>的一部分嘛，于是我就写了个<code>其它的</code></p>
+</blockquote>
+<p>进去网页看看</p>
+<p><img src="https://i.loli.net/2020/11/06/z6N93RicFg8Q7TS.png" alt></p>
+<p>一开始会给你初始资产<code>1000</code>，把它薅到<code>2000</code>就是胜利了</p>
+<ul>
+<li>收入来源：<code>储蓄卡利息</code></li>
+<li>支出方向：<code>吃饭</code>、<code>还款利息</code></li>
+</ul>
+<p>研究一下利息可以发现，它在<code>1000</code>时每日利息为<code>3</code>，可在<code>167</code>时每日利息为<code>1</code>，那我分出把<code>1000</code>分成六张<code>167</code>的卡试试，结果发现利息涨为每日<code>6</code>了，于是我的基本思路就是<code>借款吃饭，用储蓄卡利息叠钱叠利息</code></p>
+<p>手动有点麻烦，写个<code>selenium</code>自动脚本试试</p>
+<pre><code>from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.common.exceptions import NoSuchElementException, StaleElementReferenceException, ElementClickInterceptedException, UnexpectedAlertPresentException
+import time
+import requests
+import json
+
+# 打开狗狗银行
+bs = webdriver.Firefox()
+bs.get(&quot;http://202.38.93.111:10100/?token=1294%3AMEYCIQDGGgsw4ZIS8VYoonINuZNHwWagU8HonbAS8xibpRsb8QIhAMtC8zWSEbqwPOgmgaix0hzT%2Bho30JdIC8fp%2B1Uojwdg&quot;)
+time.sleep(3)
+html = bs.find_element_by_tag_name(&#39;html&#39;)
+
+# 添加 600 个储蓄卡，33 为对应办新卡的数字+1
+# bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/aside/div/div[184]&quot;).click()
+# time.sleep(1)
+# for i in range(600):
+#     bs.find_element_by_class_name(&quot;ant-card-extra&quot;).click()
+#     time.sleep(0.8)
+
+def transfer(hunter, target):
+    bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/main/div[1]/div/div/div[1]/div[2]/button&quot;).click() # 点击转账按钮
+    time.sleep(0.2)
+    bs.find_element_by_xpath(&quot;/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[1]/div[2]&quot;).click() # 点击第一个框
+    # bs.find_element_by_xpath(&quot;/html/body/div[3]/div/div/div/div[2]/div/div/div[&quot; + hunter + &quot;]&quot;).click() # 选择 hunter，数字代表对应储蓄卡
+    time.sleep(0.5)
+
+    ele_first = bs.find_element_by_xpath(&quot;/html/body/div[3]/div/div/div/div[2]&quot;)
+    if int(hunter) == 1:
+        ele_first.send_keys(Keys.ENTER)
+    else:
+        for i in range(int(hunter) - 1):
+            ele_first.send_keys(Keys.DOWN)
+            time.sleep(0.2)
+        time.sleep(0.4)
+        ele_first.send_keys(Keys.ENTER)
+
+    bs.find_element_by_xpath(&quot;/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[2]/div[2]&quot;).click() # 点击第二个框
+    # bs.find_element_by_xpath(&quot;/html/body/div[4]/div/div/div/div[2]/div/div/div[&quot; + target + &quot;]&quot;).click() # 选择 target，数字代表对应储蓄卡
+    time.sleep(0.5)
+
+    ele_second = bs.find_element_by_xpath(&quot;/html/body/div[4]/div/div/div/div[2]&quot;)
+    if int(target) == 1:
+        ele_second.send_keys(Keys.ENTER)
+    else:
+        for i in range(int(target) - 1):
+            ele_second.send_keys(Keys.DOWN)
+            time.sleep(0.2)
+        time.sleep(0.4)
+        ele_second.send_keys(Keys.ENTER)
+
+    bs.find_element_by_xpath(&quot;/html/body/div[2]/div/div[2]/div/div[2]/div[2]/form/div[3]/div[2]/div/div/div/div[2]/input&quot;).send_keys(5) # 输入金额，目前固定 5 元
+    bs.find_element_by_xpath(&quot;/html/body/div[2]/div/div[2]/div/div[2]/div[3]/button[2]&quot;).click() # convert
+
+# 基本设计方法，每次信用卡借款5次，从大于167余额的储蓄卡转相应数额到不足的卡
+
+# 信用卡借款 5 次
+def rent_money():
+    bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/aside/div/div[8]&quot;).click()
+    time.sleep(1)
+    for times in range(2):
+        bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/main/div[2]/div/form/button&quot;).click()
+        time.sleep(1)
+
+# 获取所有卡的余额,余额为 172 或者大于 172 的卡转给不足 167 的卡，根据差分倍数进行多次转账
+while True:
+    # 借款模块
+    try:
+        bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/aside/div/div[8]&quot;).click()
+        time.sleep(1)
+        for times in range(5):
+            print(&quot;借款 1 次&quot;)
+            bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/main/div[2]/div/form/button&quot;).click()
+            time.sleep(1)
+    except NoSuchElementException:
+        print(&quot;无此元素报错，可能是页面未刷新完全，继续下一个动作&quot;)
+        bs.refresh()
+
+    # 转账模块
+    try:
+        banl_list = []
+        for i in range(1, 200): # 减小内存占用，请在此设置操作的储蓄卡区间，需要大于下面设置的值
+            banl = bs.find_element_by_xpath(&quot;/html/body/div/section/main/section/aside/div/div[&quot; + str(i+1) + &quot;]/div[2]/div/span[2]&quot;).text
+            banl_list.append(str(banl))
+        insuff = [j + 1 for j in range(len(banl_list)) if int(banl_list[j]) &lt; 167][0:4]
+        for b in range(100): # 减小内存占用，请在此设置操作的储蓄卡区间
+            insuff_Card_list = []
+            if b == 6:
+                continue
+            elif int(banl_list[b]) &gt;= 172:
+                try:
+                    print(&quot;储蓄卡 &quot; + str(b+1) + &quot; 余额为 &quot; + banl_list[b])
+                    print(&quot;储蓄卡 &quot; + str(b+1) + &quot; 转给储蓄卡 &quot; + str(insuff[0]))
+                    transfer(str(b + 1), str(insuff[2]))
+                    time.sleep(1)
+                    if abs(167 - int(banl_list[b])) / 5 &gt;= 2:
+                        print(&quot;储蓄卡 &quot; + str(b+1) + &quot; 转给储蓄卡 &quot; + str(insuff[1]) + &quot; 第二次&quot;)
+                        transfer(str(b + 1), str(insuff[0]))
+                        time.sleep(1)
+                        if abs(167 - int(banl_list[b])) / 5 &gt;= 3:
+                            print(&quot;储蓄卡 &quot; + str(b+1) + &quot; 转给储蓄卡 &quot; + str(insuff[2]) + &quot; 第三次&quot;)
+                            transfer(str(b + 1), str(insuff[1]))
+                            time.sleep(1)
+                            if abs(167 - int(banl_list[b])) / 5 &gt;= 4:
+                                print(&quot;储蓄卡 &quot; + str(b+1) + &quot; 转给储蓄卡 &quot; + str(insuff[2]) + &quot; 第三次&quot;)
+                                transfer(str(b + 1), str(insuff[0]))
+                                time.sleep(1)
+                except NoSuchElementException:
+                    print(&quot;无此元素报错，可能是页面未刷新完全，继续下一个动作&quot;)
+                    continue
+                except StaleElementReferenceException:
+                    print(&quot;选择元素报错，原因未知，刷新页面，继续下一个动作&quot;)
+                    bs.refresh()
+                    time.sleep(2)
+                except ElementClickInterceptedException:
+                    print(&quot;表单选择错误，可能是识别混乱，刷新页面，继续下一个动作&quot;)
+                    bs.refresh()
+                    time.sleep(2)
+            elif int(banl_list[b]) &lt; 172:
+                if int(banl_list[b]) == 0:
+                    insuff_Card_list.append(b + 1)
+                else:
+                    print(banl_list[b])
+                    print(&quot;储蓄卡 &quot; + str(b + 1) + &quot; 不足172元，跳过&quot;)
+                    continue
+        if len(insuff_Card_list) &gt; 4:
+            print(&quot;储蓄卡 &quot; + &quot;&quot;.join(insuff_Card_list) + &quot; 空空如也&quot;)
+    except UnexpectedAlertPresentException:
+        print(&quot;未知错误，刷新&quot;)
+        bs.refresh()
+        time.sleep(2)
+</code></pre><p>首先设置了一个转账函数<code>transfer()</code>，把固定金额从一个卡转到另一个卡</p>
+<p>其次是生成储蓄卡，用于自动生成<code>600</code>张储蓄卡</p>
+<p>再是借款模块，在每次循环开始借款<code>5</code>次</p>
+<p>再写一个转账模块，包括识别和函数</p>
+<p>再把报错处理一下，全部模块丢进<code>while True</code></p>
+<blockquote>
+<p>以上仅为测试用，所以并没有写的很深入，比如固定金额转账，还有一些报错处理没完善<br>当时我是比赛第一天熬夜写的脚本，花了<code>4</code>个钟</p>
+</blockquote>
+<p>第二天就丢在后台运行了一个下午，后来就变成上面图片那样，负资产越来越多直到<code>-5000</code></p>
+<p>然后我就不想去碰这题了（题目真屑————啊不对，我真屑</p>
+<p>至于用<code>burp</code>解题，我不会啊啊啊（（</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
+<p>当前分数：900， 总排名：379 / 2340<br>binary：0 ， general：750 ， math：0 ， web：150<br>（非准确数值）</p>
+</blockquote>
+<p>估计再过一天也做不出来什么题目</p>
+<p>排行榜看看，发现苏卡卡已经<code>3100</code>分了</p>
+<p><img src="https://i.loli.net/2020/11/06/kPH9vUGtiYsJM1T.png" alt></p>
+<p>对比赛总结一下就是</p>
+<ul>
+<li><code>web</code>相关的难一点点的话一个解不出来，思路倒是有挺多，主要是工具不会用（</li>
+<li>能真正用到<code>selenium</code>的地方确实不多，<del>以后还是不费这么大劲去写它了</del></li>
+<li>能做出来的题目做得还是非常愉快的，也确实<code>老少皆宜</code></li>
+<li>（果然我就是菜鸡）</li>
+</ul>
+<p>明年预计是要继续打的</p>
+<p>就算是提前放出<code>Write-up</code>，只要我的分数够低也是没有问题的（逃</p>
+<blockquote>
+<p>注意：博文图片可能需要翻墙访问，虽说之前说过要翻新博客，可也一直咕着，虽有基本的框架，但并不想那么早放出来，以前就被人爆破过。</p>
+</blockquote>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            版权声明：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0 License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://blog.tinyume.com/archives/hackergame-2020-write-up.html">http://blog.tinyume.com/archives/hackergame-2020-write-up.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+            
+
+            <!-- Post Comments -->
+            
+            
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.tinyume.com/archives/hackergame-2020-write-up.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://blog.tinyume.com/archives/hackergame-2020-write-up.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//peropero.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: 'peropero',
+        siteName: 'blog.tinyume.com',
+        identifier: 'http://blog.tinyume.com/archives/hackergame-2020-write-up.html',
+        url: 'http://blog.tinyume.com/archives/hackergame-2020-write-up.html',
+        title: 'Hackergame-2020 Write-up',
+        api: '',
+        apikey: 'DLgNmYM1g1PtZTXyeqzaTemAIyFtcfPkIJEx8rZj8L7A6qjIPQ3V6rpFtkYk7X8q',
+        admin: 'iyume',
+        adminLabel: '管理员'
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+            
+        </div>
+
+        <!-- Post Prev & Next Nav -->
+        <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/wu-ti.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+    </div>
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" alt="黯梦萦辰's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        iyumelive@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <style>
+    .sidebar-iconfont {
+        display: block;
+        margin: 0px 0 -2px 2px;
+    }
+</style>
+<!--<p>theme.sidebar.homepage.icon</p>-->
+<ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+            <li>
+                <a href="mailto:iyumelive@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email Me">
+                    
+                    <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    
+                    Email Me
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+    <li id="sidebar-first-li">
+        <a href="/">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-home-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;主页
+        </a>
+    </li>
+    
+    
+
+    <!-- Archives  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-archive-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Categories  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-category-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;分类
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/categories/代码/">代码<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识/">知识<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/随想/">随想<span class="sidebar_archives-count">2</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Pages  -->
+    
+    <li>
+        <a href="/laycomment.html" title="留言">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/laycomment-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;留言
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/links" title="友链">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-friends-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;友链
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/about" title="关于">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-person-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;关于
+        </a>
+    </li>
+    
+    <li class="divider"></li>
+    
+    
+    <li>
+        <a href="/timeline" title="时间线">
+            
+            &nbsp;时间线
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/kami" title="神之领域">
+            
+            &nbsp;神之领域
+        </a>
+    </li>
+    
+    
+
+    <!-- Article Number  -->
+    
+    <li>
+        <a href="#">
+            文章总数
+            <span class="sidebar-badge">22</span>
+        </a>
+    </li>
+    
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  rel='external nofollow' class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+    <!-- Paradox Footer Left Section -->
+    <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/furiyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/iyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/iyumoe" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+    <!--Copyright-->
+    <div id="copyright">
+        Copyright&nbsp;©&nbsp;<span year></span>&nbsp;黯梦萦辰
+        
+        <br>
+        
+        <a href="https://github.com/iyume/hexo-blog/tree/gh-pages" rel="external nofollow noreferrer">Github</a> & <a href="https://www.jsdelivr.com/" rel="external nofollow noreferrer">jsDelivr</a> & <a href="https://www.cloudflare.com/" rel="external nofollow noreferrer">Cloudflare</a> | <a href="http://beian.miit.gov.cn/" rel="external nofollow noreferrer">粤ICP备2020138189号</a>
+        
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <span class="post-count">&nbsp;|&nbsp;字数统计：33.6k</span>
+    </div>
+
+    <!-- Paradox Footer Right Section -->
+
+    <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+    <div class="mdl-mini-footer--right-section">
+        <div>
+            <div class="footer-develop-div">Powered by <a href="https://hexo.io" rel='external nofollow' target="_blank" class="footer-develop-a">Hexo</a></div>
+            <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel='external nofollow' target="_blank" class="footer-develop-a">Material</a></div>
+        </div>
+    </div>
+    
+    <script>
+        var now = new Date();
+
+        function createtime() {
+            var grt = new Date("07/01/2019 17:38:00"); //在此处修改你的建站时间
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+            document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()", 250);
+
+    </script>
+
+
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<!-- <script id="dsq-count-scr" src="//peropero.disqus.com/count.js" async></script> -->
+<script id="dsq-count-scr" src="https://c.disquscdn.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+<!--
+    <script type="text/javascript" color="255,255,255" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+-->
+
+<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 9999999; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+</html>

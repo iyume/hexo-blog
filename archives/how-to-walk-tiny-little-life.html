@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://peropero.disqus.com">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            How to walk tiny little life | 
+        
+        黯梦萦辰
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="仰望半月的夜空">
+    <meta name="keywords" content="黯梦萦辰,iyume,tinyume,博客">
+    <meta name="theme-color" content="#0080ff">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.css?bOqB0GgeGicuWzuzm+5PQg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #0080ff;
+    text-decoration: none
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0080ff !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0080ff !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0080ff !important;
+  }
+
+  .toTop {
+    background: #0080ff !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #0080ff;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #0080ff;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #0080ff;
+  }
+
+  .post-toc a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        #scheme-Paradox .social-btn{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .sidebar .sidebar-nav li a {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .mdl-button {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .MD-burger-icon {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        #scheme-Paradox .material-layout .mdl-card__media{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        a:hover{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        body{
+            background-image: url(https://i.loli.net/2019/09/13/5ZTKgCIyevLOEJ1.png);
+            cursor: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-click-2.svg),auto;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="黯梦萦辰">
+    <meta name="msapplication-starturl" content="http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html">
+    <meta name="msapplication-navbutton-color" content="#0080ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="黯梦萦辰">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="How to walk tiny little life | 黯梦萦辰">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <meta property="og:description" content="仰望半月的夜空">
+    
+
+    
+        <meta property="article:published_time" content="Mon Mar 09 2020 19:22:29 GMT+0800">
+        <meta property="article:modified_time" content="Wed Apr 22 2020 20:45:56 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script id="myjsonid" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html",
+        "headline": "How to walk tiny little life",
+        "datePublished": "Mon Mar 09 2020 19:22:29 GMT+0800",
+        "dateModified": "Wed Apr 22 2020 20:45:56 GMT+0800",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-16.png"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "黯梦萦辰",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            },
+            "description": "仰望半月的夜空"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "黯梦萦辰",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            }
+        },
+        "keywords": "黯梦萦辰,iyume,tinyume,博客",
+        "description": "仰望半月的夜空"
+    }
+</script>
+<script>
+    roundsum = Math.round(Math.random()*"19"+1);
+    testvar = document.getElementById("myjsonid");
+</script>
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W2644L9');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+    
+    <!-- jsDelivr DisqusJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2644L9" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Post TOC -->
+
+
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#本篇"><span class="post-toc-number">1.</span> <span class="post-toc-text">本篇</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+<!-- Post Module -->
+<div class="material-post_container">
+
+    <div class="material-post mdl-grid">
+        <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+            <!-- Post Header(Thumbnail & Title) -->
+            
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', 'https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                How to walk tiny little life
+            </p>
+        </div>
+
+
+
+
+
+            
+            <!-- Paradox Post Info -->
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>黯梦萦辰</strong>
+        <span>3月 09, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAAC5UlEQVR42u3aQXLCQAwEQP7/6eQBKcyM1qRgt32iAsFqH6JotI+fI68HNjY2NjY2NjY29keyH/H197eevb7+/Oznz+5S1IyNjY29NfvFn/7Lz6yX3j6yWc3Y2NjYJ7CfNYCk3JUHcQ3O63lRFTY2NjZ2+fnrIvJxaKUGbGxsbOy2gSVNKEdiY2NjY78jVEraUh4MDeOh/8/SsLGxsT+e3baWT3j9r/ttbGxs7A9mt1fStK5Hi/WDQcPKsbGxsTdl58XNhpPZwc3rQSWvExsbG/sEdh64t4FO29LeHVRhY2Nj78rOD1OuLGvb4zttS0vw2NjY2Huzk9tcN6R2DRwND+UDHe63sbGxsb+cnd8mbxv3HtDM2+1w0YuNjY395eykzbQltguDKBIaxVvY2NjYJ7Db9jMbOWbr4XbpW48i2NjY2Fuw2wbzU143NJ4gzIrqx8bGxt6Ufd1s2iM17ZHNfG3cNkVsbGzsM9n1P/cxI29OeRNtGy02Njb2rux3H7VcGUhmS4jhohcbGxv7a9nXt0nena118+Vu8qCjMAsbGxt7a/ZdEU8yoswCpjb8qrM0bGxs7K9l52vXWTtpSbOFcTTYYGNjY2/KHgY0y60lXx60S4giVMLGxsbeiJ2HR7NBJf+2lUqGWRo2Njb2l7PzaP6ugz53xU95DdjY2NjnsGdL3Lz0WbntSrjO0rCxsbE3YueDRDsq5LH++lo3CpWwsbGxN2VH0UwZFc2GnJXwaNi3sbGxsbdgt+vVPE5aaVr5cuLFXbCxsbE3ZbfX++KhtpXW7RAbGxt7U3bbGFYO0yQL43ZRUdSMjY2NvTU7aVr5wrUlzb45GZywsbGxT2Pnxx/b2Ci/V9tWb8jSsLGxsQ9m52NJHlflB3fqJQQ2NjY29qhpzZYEeSBVHO7BxsbGPoCdtJabm0oyQpSri7qBYWNjY2/BbsOaOtCJD1zmpKQ2bGxs7BPY51zY2NjY2NjY2NjYH3P9AiyqpLda9mYnAAAAAElFTkSuQmCC">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=How to walk tiny little life&url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html&pic=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://twitter.com/intent/tweet?text=How to walk tiny little life&url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html&via=黯梦萦辰" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://plus.google.com/share?url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html&title=How to walk tiny little life" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=黯梦萦辰&title=How to walk tiny little life&summary=仰望半月的夜空&pics=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://telegram.me/share/url?url=http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html&text=How to walk tiny little life" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+            
+            <style>
+                .post-preface {
+                    margin: 15px 0 0 4%;
+                }
+
+                .post-preface-count,
+                .post-preface-minread,
+                .post-preface-categories {
+                    border-radius: 10px;
+                    margin: 7px 3px 5px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: white;
+                    display: inline-block;
+                    letter-spacing: 1px;
+                }
+
+                .post-preface-count {
+                    background-color: #ff4e6a;
+                }
+
+                .post-preface-minread {
+                    background-color: #ffaa73;
+                }
+
+                .post-preface-categories {
+                    background-color: #3cdc82;
+                }
+
+                .category-link {
+                    text-decoration: none;
+                }
+
+                .category-link:hover,
+                .category-link:link,
+                .category-link:visited,
+                .category-link:active {
+                    color: white;
+                }
+
+                .post-preface-icons {
+                    filter: invert(100%);
+                }
+            </style>
+            <div class="post-preface">
+                <span class="post-preface-count">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-count.svg">
+                    </i>
+                    &nbsp;6.1k字
+                </span>
+                <span class="post-preface-minread">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-minread.svg">
+                    </i>
+                    &nbsp;大约20分钟
+                </span>
+                
+                <span class="post-preface-categories">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-categories-1.svg">
+                    </i>
+                    &nbsp;<a class="category-link" href="/categories/日常/">日常<span class="category-count">10</span></a>
+                </span>
+                <script>
+                    for (i = 0; i < document.getElementsByClassName("category-link").length; i++) {
+                        document.getElementsByClassName("category-link")[i].innerHTML = document.getElementsByClassName(
+                            "category-link")[i].innerHTML.replace(/[0-9]/g, '');
+                    }
+                </script>
+                
+            </div>
+            <!-- Post Content -->
+            <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>动画——</p>
+<p>用日语读就是 “Anime”</p>
+<p>翻译过来就是 “吖你面” 的意思……</p>
+<p>总而言之，就是个抢饭碗的行业。</p>
+<p>这正是我——福原友章正面临的状况。</p>
+<p>在这个弱肉强食的行业，我应该是属于食物链底端的存在，稍有不甚便会被“猎肠者”*开膛破肚。如果用偏差值来计算的话，我一定是垫底的，但我的在校学习成绩可是很好的哦，真的真的哦，没骗你。【NETA 从零开始的异世界生活，一个危险敌对角色】</p>
+<p>食物链的顶端一般是狮子或者老虎之类的，而底端则是可爱的兔子或者猫猫狗狗之类的。而我属于后者，也就是说，我与兔子一样可爱。不过这么来说，越弱的生物便越可爱，我比兔子还弱，那么我比兔子还要可爱，好耶，可爱万岁，可爱就是正义！【NETA 游戏人生，主角的台词】</p>
+<p>这时，“咔哒”一声，刚才还在想着些没有营养的东西的我打开了自家客厅的门。</p>
+<p>「我回来了」</p>
+<p>「欢迎回来……」</p>
+<p>熟悉得不能再熟悉的声音夹杂着一丝慵懒的气息从沙发的背部传出。</p>
+<p>那家伙，又在吊儿郎当。</p>
+<p>我无奈地嘀咕道，谁让声源处的那个人是我福原友章既可爱又自傲的妹妹福原里香呢。</p>
+<p>嘛，可不可爱嘛。</p>
+<p>毕竟只有我和她待得最久，所以我的感想也并不会附上太多的主观，从一般人的标准来看的话，应该是属于非常可爱的那种类型吧。</p>
+<p>「好慢啊，8 点档动画都看完了」</p>
+<p>……如果改掉这看不起人的臭性格的话就更加可爱了。</p>
+<p>话说回来，上班真是累死人啊。</p>
+<p>俗话说，五点下班变成人*，我这是晚上八点才能变回正常人。【NETA 指日本五点下班的上班族充满活力】</p>
+<p>我扯开领带，想让闷了一整天的胸口透透气。</p>
+<p>随即从包里拿出一份文件，走向沙发。</p>
+<p>「里香，之前你说想去的声优事务所的一些入职介绍，我整理了一下都在这里了」</p>
+<p>「还有，如果决定了的话，你要把一月到三月的下午的课程空出来，有培训班要去」</p>
+<p>躺在沙发一动不动盯着平板屏幕看的妹妹把头转向了我，然后茫然地指了指自己的脸，见我点了点头后她便嫌弃地皱起了眉。</p>
+<p>这里就我们两个人，难道你想说我家的厕所还会出现花子吗，那你绝对是不乖乖听话的妹妹。【NETA 日本都市传说“厕所里的花子”】</p>
+<p>再说不是你说要当声优然后手舞足蹈地拜托我的吗？怎么搞得像是我在拜托你一样。</p>
+<p>我是工作人，也就是社畜，目前在动画行业做着制作助理的工作。</p>
+<p>而我家的妹妹则是个名存实亡的大学生，不爱学习空抱理想的人所特有的坏习气在我家妹妹身上显露无疑，比如自傲的性格，比如以前的我……难道是受了我的影响？不不不，怎么可能呢、可能？、大概是？……对不起我的可爱妹妹，把你带成这个样子全部是我这个哥哥的错。</p>
+<p>我一副欲哭无泪的表情正好被里香撞见了。不好，好尬，好尴尬……</p>
+<p>「大学那边的话不要紧，由于去年一直没工作所以学分基本都是满的，而且在学校也没什么朋友，也不会有什么事」</p>
+<p>我的妹妹直接无视了我。好，真不愧是我的妹妹！</p>
+<p>为了不让我家妹妹变成彻底的干物妹，同时作为一个负责的好哥哥，我一直在争取能让里香在声优事务所实习的机会。</p>
+<p>其结果就是，在面试被刷下来三次之后，嘴上就开始不要不要地拒绝了……虽然最后还是去了。</p>
+<p>最近才好不容易靠我的关系介绍进了一家不错的事务所。</p>
+<p>「那个、友章哥，是不是没有人要我了」</p>
+<p>「哦？是吗」</p>
+<p>是吗，这么快就开始考虑男朋友的事情了吗，那种事情不是你这个年纪考虑的吧……不对，好像已经是那个年纪了，倒不如说没有男朋友才会显得奇怪……咦？奇怪？怎么感觉鼻子有点发酸。</p>
+<p>「你看嘛，明明人家什么都愿意做，还有这么多优点，面试的那群混蛋却看不到，嘴里说着什么这个怎么样，这个不行吧，一想到就来气，为什么那种家伙能在那里工作啊，那家事务所的老板一定有问题，要不就是没事干，这大概就是业界的堕落啊」</p>
+<p>哦哦，原来是说这个啊，混蛋啊，还我的感情……</p>
+<p>你还真把自己当成被人捧在手心的宝石了，真让人担心她是不是能好好独立……业界的堕落这句话还轮不到你个臭新人来说。</p>
+<p>「那你来说说你有什么优点？」</p>
+<p>「自信……可爱？再说了，什么都愿意做不已经是最大的优点了吗？」</p>
+<p>空调马达一边发出嗡嗡响声，一边安静地将热风送出来。</p>
+<p>外面还有汽车驶过柏油路面的声音，填充着我和里香之间寂静的空气。</p>
+<p>什么都愿意做这种话无论谁都会说，无论谁都能说，可人家要的既不是你的口头承诺也不是让你做些勉为其难的工作，看人的标准不是你的长相，而是你能做什么，什么都不会的人要了也只是吃大锅饭，甚至可能成为饭里的老鼠屎。</p>
+<p>雇佣制度是一种有倾向性的制度：对资方有利，对劳方不利。劳资双方并不平等，劳方只有被动地接受资方的决策。这种不平等正是雇佣制度的本质，这既是我从工作中学到的经验，也正是我家妹妹——福原里香所面临的状况。</p>
+<p>而且，什么都愿意做这句话从一个女大学生口中说出来便会莫名带点 H 的气息，所以拜托请不要在外人面前随便说这种话，万一被误解了怎么办？作为一个哥哥如果被别人用那种质疑是不是一个好哥哥的眼神来看的话是会非常伤心的。</p>
+<p>我沉默着思考着，本来这种东西不是自己去觉悟是没有意义的。像我这样愿意帮忙很大一部分也不仅仅是里香很可爱的原因。</p>
+<p>这时我不经意地望向正因为陷入尴尬气氛不知所措而又欲言又止的妹妹，可恶，好可爱……</p>
+<p>如果这是 Galgame，此时玩家面前会出现两个选项。</p>
+<p>一是直接点破，谎称我的妹妹并不可爱，也没什么实在的能力，让她乖乖面对现实。而事实看来，我的妹妹是相当可爱的。最重要的是说者无心听者有意，就算我们是关系再亲近的兄妹，彼此之间再清白的语句也有可能被对方误解为带恶意的谎言，而我便会被妹妹当成一个既不会 ky* 也不善解人意的人，然后逐渐被妹妹讨厌，最终走入 Bad End。【NETA ky: “空气”，形容读气氛】</p>
+<p>二是去不停地夸里香，夸她的难度倒是不高，靠膝盖想的话我一秒就可以想出十个*。但问题是听完后，她很可能、不、绝对会！趾高气昂地大笑出来，说出什么果然我是天才之类的胡说八道，然后被自我膨胀诱发的盲目自信引发了第一次工作的失败被赶了出来，从此一蹶不振成为干物妹，最终走入 Bad End。【*这句话的意思是不经大脑思考，也就是瞎扯】</p>
+<p>正因为我从事的工作中成天都是谎言，所以我想尽可能地在私生活中使用真话。</p>
+<p>而我也不可能去附和她的优点，批评和夸赞到了一定程度，就会变成伤人和谎言。</p>
+<p>不管是哪边，都要维持在一个精准的平衡点。</p>
+<p>这样一来，我所能说出的话就极其有限……</p>
+<p>「对啊对啊，里香好可爱，里香好可爱，里香最可爱了」</p>
+<p>「……你绝对不是那样子想的吧？我怎么觉得你在看不起我？」</p>
+<p>里香泪眼汪汪地望着我。</p>
+<p>让对方觉得我在糊弄她，做到此而不让对方生气的方法便是重复一个夸人的语句。</p>
+<p>重复一个语句可以让其核心内容的价值和可信度降低——这是对话的一个高级技巧，能让原本不是谎言的句子听起来就像谎言一样，而对方也能察觉出这句话的真实含义，简直是放在法庭都可以打赢官司的交流术。</p>
+<p>来由便是初中向女生告白时由于太激动而在一句话中重复了三次告白，然后被干脆地甩了……</p>
+<p>不过这对我的妹妹奏不奏效我也不清楚，姑且看她的表情还是有用的吧，她能明白就好了，不用我这个哥哥去点明是最好的啦，少了麻烦又解决了问题。</p>
+<p>清空了思绪后，我开始放水洗澡。</p>
+<p>「啊啊~~！」</p>
+<p>身体刚浸入浴缸的舒适感让人忍不住发出了呻吟。</p>
+<p>「真少见诶，你居然会在泡澡时发出叫声」</p>
+<p>门外突然传来里香的吐槽。</p>
+<p>为什么你会在我浴室门外啊。</p>
+<p>我把头转向门口，用小到一定程度的声音说了一句：</p>
+<p>「要你管啊」</p>
+<p>哎，先不管她了，现在是 relaxing time！</p>
+<p>像是游泳预备队员似的，我将深深吸进肺部的水蒸气和一天下来所积累的不快随着二氧化碳一遍一遍地吐了出来。</p>
+<p>然后，待机休眠，进入“节能模式”。【NETA 冰菓 屏蔽大多来自外界的干扰，使身体耗费精力最少的一种状态】</p>
+<p>……</p>
+<p>明明人家也是有好好努力的嘛，为什么就是不直接夸夸人家嘛，还要用那种说法，真是不诚实啊，友章哥。</p>
+<p>我躺在沙发上看着事务所的介绍。</p>
+<p>直接说出口的话又感觉是在求对方夸我，回答肯定也失去了真实性。再说，我也不是小孩子了。</p>
+<p>不过为什么我这么想听到别人的夸奖呢？肯定都怪那个友章哥平时夸我夸得不够。现在的我，可是不夸就没干劲的少女，多夸夸我就可以让我去勤劳工作了，反正只是动动嘴就算是谎言也好，可以让对方满足，这么轻松的工作却没人来做真是奇怪。</p>
+<p>抢饭碗，说得好听点，就是竞争激烈。</p>
+<p>P*、监督、作画、演出、摄影、制作监督、还有我所向往的行业——声优等等，这些杂七杂八的人组成了友章哥所在的行业——动画制作。【P: Producer制片人】</p>
+<p>就像画师不仅可以在动画行业工作一样，声优的工作并不止动画配音，还有游戏配音、广告配音、广播剧、娱乐活动之类的，不过都与我这个新人没什么关系。</p>
+<p>严格来说，我也不知道自己算不算得上声优新人，因为我并没有接过配音，甚至试音都没有过。如果按照会配音而不是配过音来定义声优，那么全世界人应该都可以成为声优了，所以理论上我并不是声优。不过在社会上只要有了一个职位的称号，就会因此显得比较成熟，也可以和周围的人说，啊啊工作好累啊出去大吃一顿好了，不管哪边，对我蠢蠢欲动的心灵都有着充满魅力的诱惑。</p>
+<p>「这部 Anime，真想看到第二季啊」</p>
+<p>随便扫了一下事务所的介绍，我便将其帅气地甩到了桌上，然后拿起平板查资料，当然不是声优工作的资料，你在想啥呢。</p>
+<p>『Hakumei to mikochi』（妖精森林的小不点），正是我正在浏览的漫画改动漫。封面是两个卡通化人物，看起来非常有童话剧 poi。</p>
+<p>动画是 12 集 + OVA* 共 27 话，平均每两话漫画做出一集动画。【*国内某 B 是第 13 话】</p>
+<p>像这样的日常动画，以一般动画 300 cut 来算的话，这部动画应该是小于标准。原画没有很细腻的肢体动作，中间帧也不像战斗类那么多要求，演出和摄影也没有多少戏份，3D 更不用说，总之就是制作难度不高。说白了点，没那么烧钱。</p>
+<p>而一部动漫的制作，一般只有两种途径。一是动画公司自己投资创作，二是委员会委托创作。前者的制作大多来源情怀，而后者只是一个单纯拿工资的。一般动画的制作涉及很多方的利润问题，比如电视台、广告、周边，所以一般都是由投资方出资制作的。</p>
+<p>一部动漫的续作会因为作画风格等种种原因，一般是交给前作的负责公司，不过前提是要有钱、要能赚钱，钱的来源可以是自己出也可以是投资，后者居多也正是为什么有如此多的动漫都是人气轻小说漫画游戏改编。</p>
+<p>出于情怀创作自主投资的典型例子就是京都。</p>
+<p>投资制作一般会结合前作各种因素再决定如何制作续作。但也有先播吸引投资再播的例子。（比如国内的镇魂街2）</p>
+<p>假如把电视台比作你（委员会）家楼下的房东，那么动画公司就可以比作房东的儿子。</p>
+<p>现在房东想把房子租出去，需要进行“宣传”，宣传到位了，钱也就赚到了。</p>
+<p>房子卖的好了，了解的人多了，房东还可以通过各种途径赚钱，如“买房再出租”、“将房子空出来作为拍电影的场所”、“找人来翻修房子”。</p>
+<p>房东儿子在这里就没有任何作用了，房东儿子仅仅可以帮房东算账看房子。</p>
+<p>动画是赚钱的商业手段，会动的美少女背后并不仅仅是轻松的日常，有些动画的口碑再好，没有利润也是白谈续作。</p>
+<p>常说的 BD 销售在动画行业的利润占比其实并不是很高，稍微计算便可得知。一部 12 话每话 20 min 的标准动画成本大约在 1.5-3 亿日元，BD 若以单价 6000 日元计算，5000 销售额的利润便是三千万日元，这还只是毛利，不可控制成本肯定无法避免。一般来说深夜档动画会卖得多，但销量高也并不一定代表利润高，比如轻音 2。</p>
+<p>不过 BD 的销量一般可以衡量其他周边的销量，所以有些动画会以 BD 销售额作为第二季制作的基石。</p>
+<p>同为基石的当然还是原作量，原作量不够也是难产，甚至经常出现靠广播剧和 CD 来填剧情的现象。</p>
+<p>不过目前漫画更至 62 话且一直在以 ONC 形式更新，原作量上是没什么问题的。</p>
+<p>总而言之，这个奇怪的行业却能产出不奇怪的动画，也是件奇怪的事情了……</p>
+<p>不过这些知识都是从友章哥那里听来的，他好像说了一部叫什么白箱的动画哎管他呢肯定不是什么有意思的作品。</p>
+<p>「哦哦，这个叫 Lerche 的动画制作公司居然还制作过『机巧少女不会受伤』」</p>
+<p>我正在 Oricon 网站上找这部『Hakumei to mikochi』的 BD 销量，自然而然看到了同家公司的作品。</p>
+<p>「啊啊是『昂宿七星』、还有『游戏三人娘』和『彼方的阿拉斯加』，好厉害的公司，我以前都不知道」</p>
+<p>「哦哦！这是欠了一个诺贝尔和平奖的芳文社的『学园孤岛』」【NETA 因为芳文社作品以百合、萝莉为主体，常被视为世界和平的象征】</p>
+<p>静不下来静不下来……我开始在沙发上手舞足蹈。</p>
+<p>我在沙发上抬起头，正对上头发还有水滴残留的友章哥那看疯子般的眼神。</p>
+<p>「……你怎么了？」</p>
+<p>「没什么……做做运动做体操，瑜伽那些的」</p>
+<p>我敷衍了几句，翻了个身，继续埋头盯着平板。</p>
+<p>「这样吗，没想到你会的挺多的」</p>
+<p>「一般般吧」</p>
+<p>友章哥去厨房倒了杯水，然后走到沙发边朝我打了个手势示意我让开。</p>
+<p>「话说啊，友章哥」</p>
+<p>「嗯？」</p>
+<p>「为什么这些动漫的 BD 没什么销量啊」</p>
+<p>我把刚刚查到的 Lerche 公司信息通过平板递给友章哥。</p>
+<p>「『妖精森林的小不点』还说得过去，但是为什么『昂宿七星』只有 58 销售量啊」</p>
+<p>「这种事情不是个人喜好吗，就算你问我我也不知道怎么说啊」</p>
+<p>「是没有人喜欢吗？明明是那么好的作品？轻小说也是令人非常感动的说？这不是很异常吗？友章哥？」</p>
+<p>我一步步逼问着友章哥。</p>
+<p>「那个……」</p>
+<p>一回头正好和我对上目光的友章哥表情突然慌张了起来。</p>
+<p>好近，太近了……</p>
+<p>察觉到这一点的我，因为觉得害臊也把脸扭开了。</p>
+<p>我和友章哥分别占据沙发的两端。我偷看了他一眼，他扭头背对着我。</p>
+<p>像是在缓解紧张的情绪，我用手指一圈圈地卷着头发。</p>
+<p>……我们是兄妹啊，所以这种事情我向来没有在意过。</p>
+<p>不过一旦开始在意了，就会变得非常难为情，这让我不由得移开了视线……奇怪，明明天气不热，为什么感觉脸颊有点发烫。</p>
+<p>……</p>
+<h2 id="本篇"><a href="#本篇" class="headerlink" title="本篇"></a>本篇</h2><p>真是令人羡慕的兄妹！为了说出这句话，花了将近五千字。</p>
+<p>我也好想要个能陪在我身边开玩笑说着啊看哥哥又在傻笑了的可爱妹妹啊！</p>
+<p>现在正处于春夏的换季，天气一会儿冷，一会儿热的，让人静不下心去学习。时间也是不知不觉就来到了高考 90 天，就算是以前怎样都无所谓的我也感到了压迫感，看着这对自己亲笔写出来的兄妹的日常故事，要加油不输给他们的想法也在我脑中回响着。</p>
+<p>这次写的是福原友章和福原里香兄妹的日常，大家还喜欢吗？这个原本没多少计划的短篇，不知不觉间写了一天的时间，也写到了接近五千的字数。原本只是想写最近的一些事情，干脆就用轻小说的形式写了。这篇短文由一丝丝灵感和一丝丝冲动、还有人生几千亿分之一的时间构成，要素包含了福原兄妹日常和动画科普。实在想不出怎么写却又不想借用以前的原创时，就从家里的几本轻小说借用了一些描写，痕迹可能也比较明显，大家看得开心就好了。动画科普中的知识大多来自「SHIROBAKO」（白箱）这部动画还有来自知乎的补充科普，真心感觉每个奋力的创作者都是非常可爱的呢！写的时候还想到了很多梗，因为记不太清了和剧情限制就没写上去。</p>
+<p>说到白箱，最近出了其剧场版的主视觉图，真是非常令人期待她们之间后续的故事。</p>
+<p>这次为了更好地衬托写作主题——日常，将短篇的背景设在了日本 2017 年的冬季，正好是『妖精森林的小不点』这部动漫的播出季。最近正好也二追了这部温馨日常童话剧 poi 的小故事，不得不让人感叹到，真是令人向往的生活啊。</p>
+<p>如果可以的话，我还是非常想继续写这对兄妹之间的故事，不过这也只是脑中的想法而已。人的脚步停下来的话，也就不知道前方的路长什么样。</p>
+<p>日常的价值是非凡，而我也要逐渐从一种日常状态转为另一种日常状态了。过多的无用信息在占用着我的时间，最近也在考虑着要不要换个圈子，不擅长交友连换个圈子都难，不过总有办法的吧！</p>
+<p>宅久了偶尔也会冒出“啊啊自己果然不行啊”的想法，不过一想到在我的周围还有很多支持着我期待着我的人，我也会觉得不能辜负他们，特别是我的三年级国文老师，你现在过得如何呢？</p>
+<p>家母也并没有因为我的游手好闲而督促我去上网课，偶尔有些真心话无法说出来的时候，就会觉得亲人也并不一定是最亲近的人，而可能是最亲近的陌生人。虽然非常的无情，但也是对我而言的事实。</p>
+<p>最近的 kano VR live 对我一介高中生来说预算成本太高了，所以并没有去现场的准备。</p>
+<p>最近弃了 Sublime 并将 Markdown 的编写工作全部转移到了 VScode MPE。</p>
+<p>说起来啊，昨天的我——不对，如果说 3 月 9 日 0 时前的我是『昨天的我』，那么过了 3 月 10 日的0 时，『昨天的我』又会变成『前天的我』，如果照此推下去，『昨天的我』这种说法并非一个可靠的印象。可如果把『昨天的我』解释成过去的我那就说得通了，而过去的我又是每个时间段的我的结合体，也就是现在的我，所以，昨天的我=过去的我=现在的我。</p>
+<p>总之，3 月 8 日的晚上几乎从来没看过 B 站动态、B 站一天点击数不超过 3 次的我在偶然的搜索中进入了 B 站的动态页然后开始闲逛起了 vtb 们的动态。</p>
+<p>如果仅是这样还没什么好说的，我竟然翻出了西电在 4 小时前的招生宣传片投稿。</p>
+<p>这肯定是一种象征，hahaha，kadana！【NETA 少女编号，一句津津乐道的台词，意思是“赢了”】</p>
+<p>这次是用写轻小说的形式来写的博文，所以很多平时不常说的话或是不好表达的话都可以较无忌惮地写出来。同时我也十分担心自己是否有将轻小说的魅力展现出来，科普是不是有做的不到位的地方。另外我在关于我的介绍和 2019 年度总结中提及的轻小说是与上面这篇故事无关的。</p>
+<p>如果我的板绘达到了拿得出来见人的水平，我也会非常乐意画出可爱的福原兄妹。</p>
+<p>下次再见吧！</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            版权声明：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0 License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html">http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+            
+
+            <!-- Post Comments -->
+            
+            
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//peropero.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: 'peropero',
+        siteName: 'blog.tinyume.com',
+        identifier: 'http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html',
+        url: 'http://blog.tinyume.com/archives/how-to-walk-tiny-little-life.html',
+        title: 'How to walk tiny little life',
+        api: '',
+        apikey: 'DLgNmYM1g1PtZTXyeqzaTemAIyFtcfPkIJEx8rZj8L7A6qjIPQ3V6rpFtkYk7X8q',
+        admin: 'iyume',
+        adminLabel: '管理员'
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+            
+        </div>
+
+        <!-- Post Prev & Next Nav -->
+        <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/qian-tan-zhi-shang-mo-fa-shi.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/gulp-de-shen-qi-bug.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+    </div>
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" alt="黯梦萦辰's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        iyumelive@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <style>
+    .sidebar-iconfont {
+        display: block;
+        margin: 0px 0 -2px 2px;
+    }
+</style>
+<!--<p>theme.sidebar.homepage.icon</p>-->
+<ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+            <li>
+                <a href="mailto:iyumelive@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email Me">
+                    
+                    <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    
+                    Email Me
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+    <li id="sidebar-first-li">
+        <a href="/">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-home-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;主页
+        </a>
+    </li>
+    
+    
+
+    <!-- Archives  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-archive-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Categories  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-category-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;分类
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/categories/代码/">代码<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识/">知识<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/随想/">随想<span class="sidebar_archives-count">2</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Pages  -->
+    
+    <li>
+        <a href="/laycomment.html" title="留言">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/laycomment-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;留言
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/links" title="友链">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-friends-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;友链
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/about" title="关于">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-person-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;关于
+        </a>
+    </li>
+    
+    <li class="divider"></li>
+    
+    
+    <li>
+        <a href="/timeline" title="时间线">
+            
+            &nbsp;时间线
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/kami" title="神之领域">
+            
+            &nbsp;神之领域
+        </a>
+    </li>
+    
+    
+
+    <!-- Article Number  -->
+    
+    <li>
+        <a href="#">
+            文章总数
+            <span class="sidebar-badge">22</span>
+        </a>
+    </li>
+    
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  rel='external nofollow' class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+    <!-- Paradox Footer Left Section -->
+    <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/furiyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/iyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/iyumoe" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+    <!--Copyright-->
+    <div id="copyright">
+        Copyright&nbsp;©&nbsp;<span year></span>&nbsp;黯梦萦辰
+        
+        <br>
+        
+        <a href="https://github.com/iyume/hexo-blog/tree/gh-pages" rel="external nofollow noreferrer">Github</a> & <a href="https://www.jsdelivr.com/" rel="external nofollow noreferrer">jsDelivr</a> & <a href="https://www.cloudflare.com/" rel="external nofollow noreferrer">Cloudflare</a> | <a href="http://beian.miit.gov.cn/" rel="external nofollow noreferrer">粤ICP备2020138189号</a>
+        
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <span class="post-count">&nbsp;|&nbsp;字数统计：33.6k</span>
+    </div>
+
+    <!-- Paradox Footer Right Section -->
+
+    <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+    <div class="mdl-mini-footer--right-section">
+        <div>
+            <div class="footer-develop-div">Powered by <a href="https://hexo.io" rel='external nofollow' target="_blank" class="footer-develop-a">Hexo</a></div>
+            <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel='external nofollow' target="_blank" class="footer-develop-a">Material</a></div>
+        </div>
+    </div>
+    
+    <script>
+        var now = new Date();
+
+        function createtime() {
+            var grt = new Date("07/01/2019 17:38:00"); //在此处修改你的建站时间
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+            document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()", 250);
+
+    </script>
+
+
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<!-- <script id="dsq-count-scr" src="//peropero.disqus.com/count.js" async></script> -->
+<script id="dsq-count-scr" src="https://c.disquscdn.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+<!--
+    <script type="text/javascript" color="255,255,255" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+-->
+
+<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 9999999; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+</html>

@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://peropero.disqus.com">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            BOM、UTF-8 和浏览器编码问题 | 
+        
+        黯梦萦辰
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="一篇略水的文章">
+    <meta name="keywords" content="黯梦萦辰,iyume,tinyume,博客">
+    <meta name="theme-color" content="#0080ff">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.css?bOqB0GgeGicuWzuzm+5PQg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #0080ff;
+    text-decoration: none
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0080ff !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0080ff !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0080ff !important;
+  }
+
+  .toTop {
+    background: #0080ff !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #0080ff;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #0080ff;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #0080ff;
+  }
+
+  .post-toc a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        #scheme-Paradox .social-btn{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .sidebar .sidebar-nav li a {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .mdl-button {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .MD-burger-icon {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        #scheme-Paradox .material-layout .mdl-card__media{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        a:hover{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        body{
+            background-image: url(https://i.loli.net/2019/09/13/5ZTKgCIyevLOEJ1.png);
+            cursor: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-click-2.svg),auto;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="黯梦萦辰">
+    <meta name="msapplication-starturl" content="http://blog.tinyume.com/archives/bom-de-jie-shao.html">
+    <meta name="msapplication-navbutton-color" content="#0080ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="黯梦萦辰">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.tinyume.com/archives/bom-de-jie-shao.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="BOM、UTF-8 和浏览器编码问题 | 黯梦萦辰">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <meta property="og:description" content="一篇略水的文章">
+    
+
+    
+        <meta property="article:published_time" content="Tue Dec 08 2020 15:52:00 GMT+0800">
+        <meta property="article:modified_time" content="Wed Dec 09 2020 14:35:02 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://blog.tinyume.com/archives/bom-de-jie-shao.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script id="myjsonid" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "http://blog.tinyume.com/archives/bom-de-jie-shao.html",
+        "headline": "BOM、UTF-8 和浏览器编码问题",
+        "datePublished": "Tue Dec 08 2020 15:52:00 GMT+0800",
+        "dateModified": "Wed Dec 09 2020 14:35:02 GMT+0800",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-6.png"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "黯梦萦辰",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            },
+            "description": "仰望半月的夜空"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "黯梦萦辰",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            }
+        },
+        "keywords": "黯梦萦辰,iyume,tinyume,博客",
+        "description": "一篇略水的文章"
+    }
+</script>
+<script>
+    roundsum = Math.round(Math.random()*"19"+1);
+    testvar = document.getElementById("myjsonid");
+</script>
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W2644L9');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+    
+    <!-- jsDelivr DisqusJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2644L9" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Post TOC -->
+
+
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#先讲讲utf-8和utf-8-with-bom"><span class="post-toc-number">1.</span> <span class="post-toc-text">先讲讲utf-8和utf-8 with bom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python-处理utf-8-with-bom"><span class="post-toc-number">2.</span> <span class="post-toc-text">Python 处理utf-8 with bom</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#综上我们可以得出以下三点结论"><span class="post-toc-number">3.</span> <span class="post-toc-text">综上我们可以得出以下三点结论</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#我对此的猜测"><span class="post-toc-number">4.</span> <span class="post-toc-text">我对此的猜测</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">注意</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+<!-- Post Module -->
+<div class="material-post_container">
+
+    <div class="material-post mdl-grid">
+        <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+            <!-- Post Header(Thumbnail & Title) -->
+            
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', 'https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                BOM、UTF-8 和浏览器编码问题
+            </p>
+        </div>
+
+
+
+
+
+            
+            <!-- Paradox Post Info -->
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>黯梦萦辰</strong>
+        <span>12月 08, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACa0lEQVR42u3aQW6DQAwF0Nz/0u0BotDvsXFR+1hFiACPxYz17dfXnz5eeHh4eHh4eHh4D+O94uPj7d6uef+d3Pn9KWfvhoeHh7fD+2Gp/fDgT7zr89fPvQZH74aHh4e3yEuW7Pz6BJx/gsJ2goeHh/dIXl5wVzcDPDw8vP/Au44nCiFCXLjj4eHhPYeXLOjXBXH11ZOAeDVrwcPDw4t5Z22qnd+r/T08PDy8gFceaWo3qPLSfGDoCg8PD+8GXr4Q562sJFZIyuvDITA8PDy8RV6+9Ofnp2Lc68+Kh4eH91u86kKcjxScfY7kWbfse3h4eHhBGFFtR+Xg/MPlZXc5xsXDw8O7jXdWZE9dn0cSP2wheHh4eCu8swZYfwigGjREnwMPDw/vZt7ZuGpSEOdjAWdDq+WsBQ8PD2+Ily/cnfK3H38U/oWHh4e3zpsto6v3z0OHaHQADw8P7zbeWSBbLYiTIdcqFQ8PD2+f1xmumgosko0q+dB4eHh4O7ypaDUPbfMtIbn+sL+Hh4eH1+B1St58G+jEFuV2Gh4eHt46r7oBVAcIkqK8dQYPDw9vkZcv6Pkrds4fxsp4eHh4i7x89CoJLPJQ42y4Hw8PD+9pvFlwJ6Itb0J4eHh4N/OqR97iyhtX1dGugf4eHh4eXoN3tihXg9qpIa1kTAEPDw9vh5dvBp02VVKsd0Zm8fDw8PZ5+QKdlMjVECHfqMYaYHh4eHjrvOoSfxZJlIe38PDw8B7M6wCqd0uKaTw8PLx9Xn8gYHh8qlhM4+Hh4W3yqhFAVNq2t4exmTI8PDy8Ud7fO/Dw8PDw8PDw8B5wfAMvf5unK8OJHwAAAABJRU5ErkJggg==">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=BOM、UTF-8 和浏览器编码问题&url=http://blog.tinyume.com/archives/bom-de-jie-shao.html&pic=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://twitter.com/intent/tweet?text=BOM、UTF-8 和浏览器编码问题&url=http://blog.tinyume.com/archives/bom-de-jie-shao.html&via=黯梦萦辰" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.tinyume.com/archives/bom-de-jie-shao.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://plus.google.com/share?url=http://blog.tinyume.com/archives/bom-de-jie-shao.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.tinyume.com/archives/bom-de-jie-shao.html&title=BOM、UTF-8 和浏览器编码问题" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=黯梦萦辰&title=BOM、UTF-8 和浏览器编码问题&summary=仰望半月的夜空&pics=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&url=http://blog.tinyume.com/archives/bom-de-jie-shao.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://telegram.me/share/url?url=http://blog.tinyume.com/archives/bom-de-jie-shao.html&text=BOM、UTF-8 和浏览器编码问题" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+            
+            <style>
+                .post-preface {
+                    margin: 15px 0 0 4%;
+                }
+
+                .post-preface-count,
+                .post-preface-minread,
+                .post-preface-categories {
+                    border-radius: 10px;
+                    margin: 7px 3px 5px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: white;
+                    display: inline-block;
+                    letter-spacing: 1px;
+                }
+
+                .post-preface-count {
+                    background-color: #ff4e6a;
+                }
+
+                .post-preface-minread {
+                    background-color: #ffaa73;
+                }
+
+                .post-preface-categories {
+                    background-color: #3cdc82;
+                }
+
+                .category-link {
+                    text-decoration: none;
+                }
+
+                .category-link:hover,
+                .category-link:link,
+                .category-link:visited,
+                .category-link:active {
+                    color: white;
+                }
+
+                .post-preface-icons {
+                    filter: invert(100%);
+                }
+            </style>
+            <div class="post-preface">
+                <span class="post-preface-count">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-count.svg">
+                    </i>
+                    &nbsp;2.2k字
+                </span>
+                <span class="post-preface-minread">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-minread.svg">
+                    </i>
+                    &nbsp;大约9分钟
+                </span>
+                
+                <span class="post-preface-categories">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-categories-1.svg">
+                    </i>
+                    &nbsp;<a class="category-link" href="/categories/知识/">知识<span class="category-count">2</span></a>
+                </span>
+                <script>
+                    for (i = 0; i < document.getElementsByClassName("category-link").length; i++) {
+                        document.getElementsByClassName("category-link")[i].innerHTML = document.getElementsByClassName(
+                            "category-link")[i].innerHTML.replace(/[0-9]/g, '');
+                    }
+                </script>
+                
+            </div>
+            <!-- Post Content -->
+            <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>一篇略水的文章</p>
+<a id="more"></a>
+<p>原本只是无意间发现 <a href="https://github.com/luhuisicnu/The-Flask-Mega-Tutorial-zh" rel="noopener external nofollow noreferrer" target="_blank">https://github.com/luhuisicnu/The-Flask-Mega-Tutorial-zh</a> 这个项目，想拷到本地查看（毕竟 Gitbook 的速度也是挺不理想）</p>
+<p>之前虽然有过类似的操作，当时是用 gitbook serve 实现在本地浏览器查看，不过这样的操作未免过于繁琐。于是这次便想着配合 wsl apache + markdown viewer 来简化操作流程</p>
+<p>当我部署完成访问<code>SUMMARY.md</code>时，却出现了中文乱码，再点开浏览器编码，发现浏览器自动使用了西文编码而不是<code>UTF-8</code></p>
+<p>想到我之前参赛中遇到的一些小问题，结合起来写出了这篇关于 Unicode 各种文件头中的介绍文章，以及一些个人的猜测</p>
+<h2 id="先讲讲utf-8和utf-8-with-bom"><a href="#先讲讲utf-8和utf-8-with-bom" class="headerlink" title="先讲讲utf-8和utf-8 with bom"></a>先讲讲<code>utf-8</code>和<code>utf-8 with bom</code></h2><blockquote>
+<p>BOM（Byte Order Mark），字节顺序标记，出现在文本文件头部，Unicode编码标准中用于标识文件是采用哪种格式的编码。<br>—-百度百科</p>
+</blockquote>
+<p>建立 abc.txt 用<code>utf-8</code>保存<br>建立 abd.txt 用<code>utf-8 with bom</code>保存</p>
+<p>如果你有 VSCode，那么打开文件在右下角便可以看见一个<code>UTF-8</code>标识，点开再通过编码保存就行了</p>
+<p>并给两个文件写入相同内容</p>
+<p>再使用 010 Editor 分别打开两个文件</p>
+<p>我们知道<code>utf-8</code>是无字节序的，没有所谓文件头<br>而 UTF-8 with BOM 文件头多出来了<code>EF BB BF</code></p>
+<p>相关网站：<a href="https://developer.ibm.com/zh/articles/unicode-programming-language/" rel="noopener external nofollow noreferrer" target="_blank">https://developer.ibm.com/zh/articles/unicode-programming-language/</a></p>
+<p>可以得知虽然 BOM 的意思是字节顺序标记，但在 UTF-8 编码格式的文本中，如果添加了 BOM，则标示该文本是由 UTF-8 编码方式编码的，而不用来说明字节序</p>
+<h2 id="Python-处理utf-8-with-bom"><a href="#Python-处理utf-8-with-bom" class="headerlink" title="Python 处理utf-8 with bom"></a>Python 处理<code>utf-8 with bom</code></h2><blockquote>
+<p>之前在比赛中使用<code>burp</code>爆破时，总会发现字典的第一个密码在<code>burp</code>中会显示成乱码</p>
+</blockquote>
+<p>先试着打开一下第一行会乱码的那个文件</p>
+<pre><code>with open(&#39;./password.txt&#39;, &#39;r&#39;) as f:
+    t = f.read()
+print(t.split(&#39;\n&#39;))
+</code></pre><p>第一行是<code>\ufeffadmin</code>，多了个奇怪的东西<code>\ufeff</code></p>
+<p>并且这个东西可以通过如下语句去掉，只是换了个编码方式</p>
+<pre><code>with open(&#39;./password.txt&#39;, &#39;r&#39;, encoding=&#39;utf-8-sig&#39;) as f:
+    t = f.read()
+print(t.split(&#39;\n&#39;))
+</code></pre><p>我们知道<code>\u</code>就是表示<code>unicode</code>，那么<code>\ufeff</code>是什么呢？</p>
+<p>尝试以下代码</p>
+<pre><code>&#39;i like milk&#39;.encode(&#39;utf-8-sig&#39;)
+# output: b&#39;\xef\xbb\xbfi like milk&#39;
+&#39;i like milk&#39;.encode(&#39;utf-8-sig&#39;).decode(&#39;utf-8&#39;)
+# output: &#39;\ufeffi like milk&#39;
+</code></pre><p>第一行中出现了<code>\xef\xbb\xbf</code>，<code>\x</code>是表示十六进制的，并且<code>EF BB BF</code>正好就是 UTF-8 with bom 的文件头部</p>
+<p>在第二行中使用<code>utf-8-sig</code>编码再使用<code>utf-8</code>解码便出现了<code>\ufeff</code>这个玩意</p>
+<p>可以推测<code>\ufeff</code>就是之前提到的多出的三个十六进制符<code>EF BB BF</code>在<code>decode(&#39;utf-8&#39;)</code>时被错误识别而编码出来的部分</p>
+<p>并且通过查阅资料，可以发现<code>FE FF</code>是 UTF-16-BE 的 BOM</p>
+<p>但是也有许多讲不通的地方，于是去查了谷歌发现这样一句话</p>
+<blockquote>
+<p>Our friend FEFF means different things, but it’s basically a signal for a program on how to read the text. It can be UTF-8 (more common), UTF-16 , or even UTF-32 . FEFF itself is for UTF-16 — in UTF-8 it is more commonly known as 0xEF,0xBB, or 0xBF<br>个人翻译：FEFF 可以代表不同的东西，但它基本上是一个程序阅读一个文本的信号。它可以意味着 UTF-8（更常见），UTF-16，甚至是 UTF-32。FEFF 自身是属于 UTF-16，在 UTF-8 中它通常被称为 0xEF, 0xBB, 0xBF</p>
+</blockquote>
+<p>于是我有个了更大胆的猜测：因为 UTF-8 无字节序，它并不知道面对的文件编码到底是哪种，所以我们平时保存所谓的 UTF-8，实际上会以 UTF-16 读取！</p>
+<p>说那么多，不如来动手试试！</p>
+<p>先把<code>abc.txt</code>用 UTF-16-BE 储存</p>
+<pre><code>with open(&#39;./abc.txt&#39;, &#39;r&#39;, encoding=&#39;utf-16-be&#39;) as f:
+    t = f.read()
+print(t)
+# output: &#39;\ufeffadddd这是中文\n\nand this is milk.\n&#39;
+</code></pre><p>出现了熟悉的<code>\ufeff</code>！</p>
+<p>与 UTF-8 相同的是，UTF-16-BE 和 UTF-16-LE 也可以不需要 BOM（也许都不需要，但若是如此则需要自己判断类型）</p>
+<p>并且还发现了一个出乎意料并且有意思的东西</p>
+<pre><code>&#39;abc&#39;.encode(&#39;utf-16&#39;)
+# output: b&#39;\xff\xfea\x00b\x00c\x00&#39;
+&#39;abc&#39;.encode(&#39;utf-16&#39;).decode(&#39;utf-16-le&#39;)
+# output: &#39;\ufeffabc&#39;
+&#39;abc&#39;.encode(&#39;utf-16&#39;).decode(&#39;utf-16-be&#39;)
+# output: &#39;\ufffe愀戀挀&#39;
+</code></pre><p>以上代码使用<code>utf-16</code>编码出来的头为<code>\xff\xfe</code>，而在使用<code>utf-16-le</code>解码却出现了<code>\ufeff</code>，可能的推测就是<code>utf-16-le</code>对<code>utf-16</code>编码的字符的处理相对于<code>utf-16-be</code>是对每两个十六进制数交换了一下位置</p>
+<p>还有处地方很神奇了，此前我一直以为 UTF-16 decode 和 UTF-16-LE decode 是一样的效果，在这里居然多了个<code>\ufeff</code>，略微试试才发现<code>utf-16 encode</code>和<code>utf-16-le encode</code>是不一样的，<strong>并且<code>utf-16-le decode</code>不会处理<code>\xff\xfe</code></strong></p>
+<p>但是以下代码却出乎我的意料</p>
+<pre><code>&#39;\xef\xbb\xbf&#39;.encode(&#39;utf-16&#39;).decode(&#39;utf-16&#39;)
+output: &#39;ï»¿&#39;
+</code></pre><p>很多人可能不知道<code>ï»¿</code>是什么符号，但我曾经在<code>burp</code>见过</p>
+<p>它就是在某些软件中载入<code>utf-8 with bom</code>文件时，首行被错误识别的字符！</p>
+<p>再尝试</p>
+<pre><code>&#39;\xef\xbb\xbf&#39;.encode(&#39;utf-8&#39;)
+&#39;ï»¿&#39;.encode(&#39;utf-8&#39;)
+</code></pre><p>它们的输出都是</p>
+<pre><code>b&#39;\xc3\xaf\xc2\xbb\xc2\xbf&#39;
+</code></pre><p><code>ï»¿</code>的十进制为 239 187 191，它实际上就对应<code>EF BB BF</code>，只不过 UTF-8 错误地将它当成字符解释了出来</p>
+<h2 id="综上我们可以得出以下三点结论"><a href="#综上我们可以得出以下三点结论" class="headerlink" title="综上我们可以得出以下三点结论"></a>综上我们可以得出以下三点结论</h2><ul>
+<li>UTF-8 的 BOM 会被识别它自身识别成<code>ï»¿</code>（这并不是乱码）</li>
+<li>对<code>EF BB BF</code>的编码有如下特征<ul>
+<li>直接使用 UTF-8 decode，它会变成<code>\ufeff</code></li>
+<li>先执行 UTF-8 encode，再执行 UTF-8 decode，它会变成<code>ï»¿</code></li>
+<li>先执行 UTF-16 encode，再执行 UTF-16 decode，它会变成<code>ï»¿</code></li>
+<li>先执行 UTF-16 encode，再执行 UTF-16-LE decode，他会变成<code>\ufeffï»¿</code>（最奇怪的地方）</li>
+</ul>
+</li>
+<li><code>\ufeff</code>会在以下情况出现<ul>
+<li><code>b&#39;\xef\xbb\xbf&#39;.decode(&#39;utf-8&#39;)</code></li>
+<li><code>&#39;&#39;.encode(&#39;utf-8-sig&#39;).decode(&#39;utf-8&#39;)</code></li>
+<li><code>&#39;&#39;.encode(&#39;utf-16&#39;).decode(&#39;utf-16-le&#39;)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>注意点：</strong></p>
+<ul>
+<li><code>utf-16 encode</code>会给加上头部<code>\xff\xfe</code></li>
+<li>而<code>utf-16-le encode</code>和<code>utf-16-be encode</code>并不会</li>
+<li>并且<code>utf-16-le decode</code>和<code>utf-16-be decode</code>不会处理来自<code>utf-16 encode</code>加上的文件头</li>
+</ul>
+<h2 id="我对此的猜测"><a href="#我对此的猜测" class="headerlink" title="我对此的猜测"></a>我对此的猜测</h2><p>回归原题目：<strong>为什么读取 utf-8 with bom 的文件首行会出现<code>\ufeff</code>？并且某些软件会出现<code>ï»¿</code>？</strong></p>
+<ul>
+<li>第一种<ul>
+<li>可能是编程软件中的<code>utf-8</code>处理带 BOM 编码文件时，有一种特殊的兼容性处理方式，就是在 BOM 之后的每一位十六进制符往后填充<code>\x00</code>，首部填充了<code>\xff\xfe</code>，将其转换为标准<code>utf-16</code>编码，再使用<code>utf-16-le decode</code>，而 BOM 的<code>EF BB BF</code>由于仅代表 Zero Width No-Break Space，可能存在某种特殊机制使其在<code>utf-16 encode</code>之前就变成了空字符，而<code>utf-16 encode</code>所加上的文件头<code>\xff\xfe</code>在<code>utf-16-le decode</code>后就变成了<code>\xfe\xff</code>，但这种可能也无法解释为什么<code>utf-8 without bom</code>编码文件在解码时不会被加上<code>\ufeff</code></li>
+<li>可能<code>\xef\xbb\xbf</code>执行<code>utf-8 decode</code>就是<code>\ufeff</code>，但会有很多地方解释不清</li>
+</ul>
+</li>
+<li>第二种<ul>
+<li>可能是某些软件读取文件时，直接对十六进制内容进行<code>utf-8 decode</code>（或是<code>utf-16 decode</code>），导致 BOM 被当作文件一部分解释了出来，进而出现了<code>ï»¿</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><p><strong>我本人不是很熟悉编码方面的原理，一切仅是推理</strong></p>
+<p><strong>本文章也算是一个抛砖引玉吧，毕竟这一块找了挺多资料都没有很详细的记载</strong></p>
+<p>说了那么多额外话题，最初的浏览器中文乱码问题的解决方法其实就是在<code>markdown viewer</code>设置中添加一项<code>http://localhost</code> match all 并且开启 encoding utf-8 就行了</p>
+<p>限于时间，我没空再进行别的实验了，比如说添加响应头来看看浏览器会不会识别，实际上写这一篇文章已经耗了一个晚上</p>
+<p><strong>小结一下就是：</strong><br>编程语言及各类常用应用中，使用 UTF-8 编码的文件可以被正常读取，而浏览器不行</p>
+<p>使用 UTF-8 with BOM 可以正常被浏览器读取，而在大多数编程语言中需要进行额外处理，并且有一小部分软件无法识别 BOM（比如<code>burp</code>）</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            版权声明：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0 License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://blog.tinyume.com/archives/bom-de-jie-shao.html">http://blog.tinyume.com/archives/bom-de-jie-shao.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+            
+
+            <!-- Post Comments -->
+            
+            
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.tinyume.com/archives/bom-de-jie-shao.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://blog.tinyume.com/archives/bom-de-jie-shao.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//peropero.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: 'peropero',
+        siteName: 'blog.tinyume.com',
+        identifier: 'http://blog.tinyume.com/archives/bom-de-jie-shao.html',
+        url: 'http://blog.tinyume.com/archives/bom-de-jie-shao.html',
+        title: 'BOM、UTF-8 和浏览器编码问题',
+        api: '',
+        apikey: 'DLgNmYM1g1PtZTXyeqzaTemAIyFtcfPkIJEx8rZj8L7A6qjIPQ3V6rpFtkYk7X8q',
+        admin: 'iyume',
+        adminLabel: '管理员'
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+            
+        </div>
+
+        <!-- Post Prev & Next Nav -->
+        <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+    </div>
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" alt="黯梦萦辰's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        iyumelive@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <style>
+    .sidebar-iconfont {
+        display: block;
+        margin: 0px 0 -2px 2px;
+    }
+</style>
+<!--<p>theme.sidebar.homepage.icon</p>-->
+<ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+            <li>
+                <a href="mailto:iyumelive@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email Me">
+                    
+                    <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    
+                    Email Me
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+    <li id="sidebar-first-li">
+        <a href="/">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-home-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;主页
+        </a>
+    </li>
+    
+    
+
+    <!-- Archives  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-archive-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Categories  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-category-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;分类
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/categories/代码/">代码<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识/">知识<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/随想/">随想<span class="sidebar_archives-count">2</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Pages  -->
+    
+    <li>
+        <a href="/laycomment.html" title="留言">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/laycomment-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;留言
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/links" title="友链">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-friends-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;友链
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/about" title="关于">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-person-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;关于
+        </a>
+    </li>
+    
+    <li class="divider"></li>
+    
+    
+    <li>
+        <a href="/timeline" title="时间线">
+            
+            &nbsp;时间线
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/kami" title="神之领域">
+            
+            &nbsp;神之领域
+        </a>
+    </li>
+    
+    
+
+    <!-- Article Number  -->
+    
+    <li>
+        <a href="#">
+            文章总数
+            <span class="sidebar-badge">22</span>
+        </a>
+    </li>
+    
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  rel='external nofollow' class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+    <!-- Paradox Footer Left Section -->
+    <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/furiyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/iyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/iyumoe" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+    <!--Copyright-->
+    <div id="copyright">
+        Copyright&nbsp;©&nbsp;<span year></span>&nbsp;黯梦萦辰
+        
+        <br>
+        
+        <a href="https://github.com/iyume/hexo-blog/tree/gh-pages" rel="external nofollow noreferrer">Github</a> & <a href="https://www.jsdelivr.com/" rel="external nofollow noreferrer">jsDelivr</a> & <a href="https://www.cloudflare.com/" rel="external nofollow noreferrer">Cloudflare</a> | <a href="http://beian.miit.gov.cn/" rel="external nofollow noreferrer">粤ICP备2020138189号</a>
+        
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <span class="post-count">&nbsp;|&nbsp;字数统计：33.6k</span>
+    </div>
+
+    <!-- Paradox Footer Right Section -->
+
+    <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+    <div class="mdl-mini-footer--right-section">
+        <div>
+            <div class="footer-develop-div">Powered by <a href="https://hexo.io" rel='external nofollow' target="_blank" class="footer-develop-a">Hexo</a></div>
+            <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel='external nofollow' target="_blank" class="footer-develop-a">Material</a></div>
+        </div>
+    </div>
+    
+    <script>
+        var now = new Date();
+
+        function createtime() {
+            var grt = new Date("07/01/2019 17:38:00"); //在此处修改你的建站时间
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+            document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()", 250);
+
+    </script>
+
+
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<!-- <script id="dsq-count-scr" src="//peropero.disqus.com/count.js" async></script> -->
+<script id="dsq-count-scr" src="https://c.disquscdn.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+<!--
+    <script type="text/javascript" color="255,255,255" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+-->
+
+<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 9999999; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+</html>

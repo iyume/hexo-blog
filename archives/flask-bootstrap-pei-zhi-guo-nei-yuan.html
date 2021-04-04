@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://peropero.disqus.com">
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            flask-bootstrap 优雅配置国内加速源 | 
+        
+        黯梦萦辰
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <link rel="icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description" itemprop="description" content="在不修改 flask-bootstrap package 的情况下优雅使用加速源">
+    <meta name="keywords" content="黯梦萦辰,iyume,tinyume,博客">
+    <meta name="theme-color" content="#0080ff">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.css?bOqB0GgeGicuWzuzm+5PQg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #0080ff;
+    text-decoration: none
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0080ff !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0080ff !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0080ff !important;
+  }
+
+  .toTop {
+    background: #0080ff !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #0080ff;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #0080ff;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #0080ff;
+  }
+
+  .post-toc a:hover {
+    color: #0080ff;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+        #scheme-Paradox .social-btn{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .sidebar .sidebar-nav li a {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .mdl-button {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        .MD-burger-icon {
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        #scheme-Paradox .material-layout .mdl-card__media{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        a:hover{
+            cursor:url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-hand-1.svg), pointer;
+        }
+        body{
+            background-image: url(https://i.loli.net/2019/09/13/5ZTKgCIyevLOEJ1.png);
+            cursor: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/pointer-click-2.svg),auto;
+        }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="黯梦萦辰">
+    <meta name="msapplication-starturl" content="http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html">
+    <meta name="msapplication-navbutton-color" content="#0080ff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="黯梦萦辰">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+        
+            <link rel="alternate" type="application/atom+xml" href="/atom.xml">
+        
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="flask-bootstrap 优雅配置国内加速源 | 黯梦萦辰">
+    <meta property="og:image" content="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png">
+    <meta property="og:description" content="在不修改 flask-bootstrap package 的情况下优雅使用加速源">
+    
+
+    
+        <meta property="article:published_time" content="Fri Dec 11 2020 16:21:00 GMT+0800">
+        <meta property="article:modified_time" content="Sat Dec 19 2020 12:39:11 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html">
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script id="myjsonid" type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": "http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html",
+        "headline": "flask-bootstrap 优雅配置国内加速源",
+        "datePublished": "Fri Dec 11 2020 16:21:00 GMT+0800",
+        "dateModified": "Sat Dec 19 2020 12:39:11 GMT+0800",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-4.png"
+        },
+        "author": {
+            "@type": "Person",
+            "name": "黯梦萦辰",
+            "image": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            },
+            "description": "仰望半月的夜空"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "黯梦萦辰",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png"
+            }
+        },
+        "keywords": "黯梦萦辰,iyume,tinyume,博客",
+        "description": "在不修改 flask-bootstrap package 的情况下优雅使用加速源"
+    }
+</script>
+<script>
+    roundsum = Math.round(Math.random()*"19"+1);
+    testvar = document.getElementById("myjsonid");
+</script>
+
+    
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W2644L9');</script>
+    <!-- End Google Tag Manager -->
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+    
+    <!-- jsDelivr DisqusJS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.2/dist/disqusjs.css">
+    <script src="https://cdn.jsdelivr.net/npm/disqusjs@1.1/dist/disqus.js"></script>
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W2644L9" height="0" width="0"
+        style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Post TOC -->
+
+
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Preface"><span class="post-toc-number">1.</span> <span class="post-toc-text">Preface</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Inplement"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Inplement</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Recette"><span class="post-toc-number">2.</span> <span class="post-toc-text">Recette</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Initialization"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Initialization</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Rewrite-inherited-class-function"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Rewrite inherited class function</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Rewrite-inherited-template-block"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Rewrite inherited template block</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Others-Optimization"><span class="post-toc-number">3.</span> <span class="post-toc-text">Others - Optimization</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+<!-- Post Module -->
+<div class="material-post_container">
+
+    <div class="material-post mdl-grid">
+        <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+            <!-- Post Header(Thumbnail & Title) -->
+            
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', 'https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                flask-bootstrap 优雅配置国内加速源
+            </p>
+        </div>
+
+
+
+
+
+            
+            <!-- Paradox Post Info -->
+            <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>黯梦萦辰</strong>
+        <span>12月 11, 2020</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+        <button id="article-functions-qrcode-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">devices other</i>
+    <span class="visuallyhidden">devices other</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-qrcode-button">
+    <li class="mdl-menu__item">在其它设备中阅读本文章</li>
+    
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAACzElEQVR42u3aUU7DMBAE0N7/0nCClJl1g1L75asqodnnSize8evnyOuFjY2NjY2NjY2N/Uj2K74uP+7izvx3r14nP81rxsbGxt6b/cef/ot72rKuFit5+tWz8pqxsbGxT2C/b0Vtu7qi5vj3NeQ1Y2NjY2O37ASc17BSDzY2NjZ2u83I38+3Kw9tYNjY2NiPZM8aTLK1mA2VZu0QGxsb+0x23lqe8/pf821sbGzsB7PbKz/K05aYb0WGlWNjY2Nvym5H87Nxf7stSQLgpE5sbGzsE9ht62obVQ7Ll/L9/ZfvY2NjY2/Kzsf0bbkrw/18KZMKsbGxsfdmzwLU4aGZ0SCp3ahEQS82Njb2RuxZuJsfr8zHTPmitLVhY2Njn8ZeHyrl25i8khuHStjY2Nhfzk6KzpvK+sHN/LltSIyNjY29K3t97N7Gw224uz5OwsbGxt6bnWwG6ki13CTMlqNuitjY2Nhbs/PGMNtOrAA+9bvY2NjYu7LzsX6CX2lgSUPNo4XhmVNsbGzsL2Sv44cjnoXR/3CYhY2NjX0AeyV2TQDJ0H92+DL6ArCxsbG3Zq+PkPJotm2WbWBcB73Y2NjYX87OD03m46R28DTbiiTVYmNjY5/Gbgf3dzS2/CtJNi3Y2NjYp7FXRvltNNvyks8f5tvY2NjYW7OTf/FXGlIbMLSNExsbG/scdvJO/uC2FbURRbtA2NjY2OewZ0P82f2zltkuHDY2NvbJ7LxptaP/PAaYBdLY2NjYp7Hbq35YPr6PW+kskMDGxsbelf2pAzHtRiLHrA+wsLGxsU9gz0ZFn9pU5EHvSkPFxsbGPoHdDpLaYKBteysXNjY2NnbbtPI2NosTVr4GbGxsbOzZiL89oHNHCIGNjY19Gjv50AQ/C2jzaHn2BWBjY2Pvzc7HNOuRQBvcJstxe76NjY2N/WD2ORc2NjY2NjY2Njb2Y65f02ByFIe4wkQAAAAASUVORK5CYII=">
+    
+</ul>
+
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=flask-bootstrap 优雅配置国内加速源&url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html&pic=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://twitter.com/intent/tweet?text=flask-bootstrap 优雅配置国内加速源&url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html&via=黯梦萦辰" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://plus.google.com/share?url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://www.linkedin.com/shareArticle?mini=true&url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html&title=flask-bootstrap 优雅配置国内加速源" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 LinkedIn
+            </li>
+        </a>
+    
+
+    <!-- Share QQ -->
+    
+        <a rel="external nofollow" class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=黯梦萦辰&title=flask-bootstrap 优雅配置国内加速源&summary=仰望半月的夜空&pics=http://blog.tinyume.comhttps://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png&url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+        <a rel="external nofollow" class="post_share-link" href="https://telegram.me/share/url?url=http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html&text=flask-bootstrap 优雅配置国内加速源" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Telegram
+            </li>
+        </a>
+    
+</ul>
+
+    
+</div>
+
+            
+            <style>
+                .post-preface {
+                    margin: 15px 0 0 4%;
+                }
+
+                .post-preface-count,
+                .post-preface-minread,
+                .post-preface-categories {
+                    border-radius: 10px;
+                    margin: 7px 3px 5px;
+                    padding: 5px 10px;
+                    font-size: 14px;
+                    color: white;
+                    display: inline-block;
+                    letter-spacing: 1px;
+                }
+
+                .post-preface-count {
+                    background-color: #ff4e6a;
+                }
+
+                .post-preface-minread {
+                    background-color: #ffaa73;
+                }
+
+                .post-preface-categories {
+                    background-color: #3cdc82;
+                }
+
+                .category-link {
+                    text-decoration: none;
+                }
+
+                .category-link:hover,
+                .category-link:link,
+                .category-link:visited,
+                .category-link:active {
+                    color: white;
+                }
+
+                .post-preface-icons {
+                    filter: invert(100%);
+                }
+            </style>
+            <div class="post-preface">
+                <span class="post-preface-count">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-count.svg">
+                    </i>
+                    &nbsp;940字
+                </span>
+                <span class="post-preface-minread">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-minread.svg">
+                    </i>
+                    &nbsp;大约4分钟
+                </span>
+                
+                <span class="post-preface-categories">
+                    <i>
+                        <img class="post-preface-icons"
+                            src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/preface-categories-1.svg">
+                    </i>
+                    &nbsp;<a class="category-link" href="/categories/代码/">代码<span class="category-count">10</span></a>
+                </span>
+                <script>
+                    for (i = 0; i < document.getElementsByClassName("category-link").length; i++) {
+                        document.getElementsByClassName("category-link")[i].innerHTML = document.getElementsByClassName(
+                            "category-link")[i].innerHTML.replace(/[0-9]/g, '');
+                    }
+                </script>
+                
+            </div>
+            <!-- Post Content -->
+            <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>在不修改 flask-bootstrap package 的情况下优雅使用加速源</p>
+<a id="more"></a>
+
+<blockquote>
+<p>@@ 2020-12-14 @@</p>
+</blockquote>
+<h1 id="Preface"><a href="#Preface" class="headerlink" title="Preface"></a>Preface</h1><p>flask-bootstrap 是用于 flask 框架中一个 pip 包，通过 jinja2 模板继承特性可以快速开发 bootstrap。</p>
+<p>但这个包默认采用的是 cloudflare 源，默认会包含 bootstrap.css、bootstrap.js、jquery.js，此外还可以包含 html5shiv、respond.js，这个可以通过一定方法查看，比如：</p>
+<pre><code>In [1]: from flask import Flask
+In [2]: from flask_bootstrap import Bootstrap
+
+In [3]: app = Flask(__name__)
+In [4]: bootstrap = Bootstrap(app)
+
+In [5]: app.extensions
+Out[5]: 
+{&#39;bootstrap&#39;: {&#39;cdns&#39;: {&#39;local&#39;: &lt;flask_bootstrap.StaticCDN at 0x743831b0&gt;,
+   &#39;static&#39;: &lt;flask_bootstrap.StaticCDN at 0x743b9e50&gt;,
+   &#39;bootstrap&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743a4fb0&gt;,
+   &#39;jquery&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743dd550&gt;,
+   &#39;html5shiv&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743cf3d0&gt;,
+   &#39;respond.js&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743cf5d0&gt;,
+   &#39;bootcdn_bootstrap&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743cf0f0&gt;,
+   &#39;bootcdn_jquery&#39;: &lt;flask_bootstrap.ConditionalCDN at 0x743cf4b0&gt;}},
+ &#39;nav_renderers&#39;: {&#39;bootstrap&#39;: (&#39;flask_bootstrap.nav&#39;, &#39;BootstrapRenderer&#39;),
+  None: (&#39;flask_bootstrap.nav&#39;, &#39;BootstrapRenderer&#39;)}}
+</code></pre><p>但是在国内，cloudflare 的速度真是令人感动。</p>
+<p>纵观一圈网上的解决方法，总体来说分两种思路：(1) 在 __init__.py 暴力修改 (2) 修改 flask-bootstrap package</p>
+<p>第一种方法代码量较大，并且暴力修改代码使其可读性大大降低；第二种方法在环境变了或者包更新了的情况都需要重新配置，太麻烦了。</p>
+<h2 id="Inplement"><a href="#Inplement" class="headerlink" title="Inplement"></a>Inplement</h2><p>一个包的主体部分是不会变的，那么我们在项目主入口用类继承重写一下方法就行了，并且在模板继承时重写 bootstrap/base.html 中的 styles 和 scripts</p>
+<h1 id="Recette"><a href="#Recette" class="headerlink" title="Recette"></a>Recette</h1><blockquote>
+<p>这里采用 bootcdn 作范例</p>
+</blockquote>
+<p>首先要读源码，了解 flask-bootstrap 这个包怎么运行，我就不写怎么读了（</p>
+<p>包目录</p>
+<pre><code>//venv/lib/python3.x/site-packages/flask_bootstrap
+</code></pre><p>我们知道 Python 在 import flask-bootstrap 时，其实就是 import 了这个目录下的<code>__init__.py</code>再通过对象方法调用相应的类，from flask-bootstrap import Bootstrap 就是直接导入了 Bootstrap 这个类</p>
+<p>我们需要用到<code>__init__.py</code>中以下类/包变量</p>
+<pre><code>Bootstrap, ConditionalCDN, WebCDN, StaticCDN, BOOTSTRAP_VERSION, JQUERY_VERSION
+</code></pre><h2 id="Initialization"><a href="#Initialization" class="headerlink" title="Initialization"></a>Initialization</h2><pre><code>from flask import Flask
+from flask_bootstrap import Bootstrap, ConditionalCDN, WebCDN, StaticCDN, BOOTSTRAP_VERSION, JQUERY_VERSION
+</code></pre><h2 id="Rewrite-inherited-class-function"><a href="#Rewrite-inherited-class-function" class="headerlink" title="Rewrite inherited class function"></a>Rewrite inherited class function</h2><pre><code>class Bootstrap_with_bootcdn(Bootstrap): # 子类
+    def init_app(self, app):             # 重写
+        super().init_app(app)            # 继承
+        local = StaticCDN(&#39;bootstrap.static&#39;, rev=True)
+        static = StaticCDN()
+        def lwrap(cdn, primary=static):
+            return ConditionalCDN(&#39;BOOTSTRAP_SERVE_LOCAL&#39;, primary, cdn)
+        bootcdn_bootstrap = lwrap(WebCDN(&#39;//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/%s/&#39; % BOOTSTRAP_VERSION), local)
+        bootcdn_jquery = lwrap(WebCDN(&#39;//cdn.bootcdn.net/ajax/libs/jquery/%s/&#39; % JQUERY_VERSION), local)
+        app.extensions[&#39;bootstrap&#39;][&#39;cdns&#39;][&#39;bootcdn_bootstrap&#39;] = bootcdn_bootstrap
+        app.extensions[&#39;bootstrap&#39;][&#39;cdns&#39;][&#39;bootcdn_jquery&#39;] = bootcdn_jquery
+</code></pre><p>我在此处加入了两条键，分别是<code>bootcdn_bootstrap</code>和<code>bootcdn_jquery</code>，在后面模板重写需要用到</p>
+<p>如果你想加入别的 CDN，只需要按照上面的规则添加就行了</p>
+<p>再将其实例化</p>
+<pre><code>app = Flask(__name__)
+bootstrap = Bootstrap_with_bootcdn(app)
+</code></pre><h2 id="Rewrite-inherited-template-block"><a href="#Rewrite-inherited-template-block" class="headerlink" title="Rewrite inherited template block"></a>Rewrite inherited template block</h2><pre><code>{% block styles %}
+<link href="{{ bootstrap_find_resource('css/bootstrap.css', cdn='bootcdn_bootstrap') }}" rel="stylesheet">    
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ bootstrap_find_resource('jquery.js', cdn='bootcdn_jquery') }}"></script>
+<script src="{{ bootstrap_find_resource('js/bootstrap.js', cdn='bootcdn_bootstrap') }}"></script>
+{% endblock %}
+</code></pre><p>我们知道 super() 是类继承用的函数，但是这在模板继承也可以用到，并且具有非常类似的作用，如果不在 block 中加入 super()，会默认使用子模板的同名 block 覆盖父模板中的同名 block</p>
+<p>这里的 bootstrap_find_resource 方法中的属性 cdn 要对应我们之前重写的类属性</p>
+<h1 id="Others-Optimization"><a href="#Others-Optimization" class="headerlink" title="Others - Optimization"></a>Others - Optimization</h1><p>我们可以将以上代码打包放进<code>config.py</code>，这是我比较推荐的一种方式</p>
+<blockquote>
+<p>./config.py</p>
+</blockquote>
+<pre><code>from flask_bootstrap import Bootstrap, ConditionalCDN, WebCDN, StaticCDN, BOOTSTRAP_VERSION, JQUERY_VERSION
+
+class Bootstrap_with_bootcdn(Bootstrap):
+    def init_app(self, app):
+        super().init_app(app)
+        local = StaticCDN(&#39;bootstrap.static&#39;, rev=True)
+        static = StaticCDN()
+        def lwrap(cdn, primary=static):
+            return ConditionalCDN(&#39;BOOTSTRAP_SERVE_LOCAL&#39;, primary, cdn)
+        bootcdn_bootstrap = lwrap(WebCDN(&#39;//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/%s/&#39; % BOOTSTRAP_VERSION), loca
+l)
+        bootcdn_jquery = lwrap(WebCDN(&#39;//cdn.bootcdn.net/ajax/libs/jquery/%s/&#39; % JQUERY_VERSION), local)
+        app.extensions[&#39;bootstrap&#39;][&#39;cdns&#39;][&#39;bootcdn_bootstrap&#39;] = bootcdn_bootstrap
+        app.extensions[&#39;bootstrap&#39;][&#39;cdns&#39;][&#39;bootcdn_jquery&#39;] = bootcdn_jquery
+</code></pre><blockquote>
+<p>./app.py</p>
+</blockquote>
+<pre><code>from config import Bootstrap_with_bootcdn
+
+app = Flask(__name__)
+bootstrap = Bootstrap_with_bootcdn(app)
+</code></pre>
+        
+                <blockquote style="margin: 2em 0 0;padding: 0.5em 1em;border-left: 3px solid #F44336;background-color: #F5F5F5;list-style: none;">
+                    <p><strong>
+                         
+                            版权声明：<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0 License</a>
+                        </strong>
+                        <br>
+                        <strong>本文链接：</strong><a href="http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html">http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html</a>
+                    </p>
+                </blockquote>
+        
+    
+
+    
+</div>
+
+
+            
+
+            <!-- Post Comments -->
+            
+            
+    <!-- 使用 DISQUS -->
+<div id="disqus-comment">
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html';  // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+</script>
+<script type="text/ls-javascript" id="disqus-thread-script">
+    queue.offer(function() {
+            (function() { // DON'T EDIT BELOW THIS LINE
+                var d = document;
+                var s = d.createElement('script');
+                s.src = '//peropero.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', + new Date());
+                (d.head || d.body).appendChild(s);
+            })();
+        });
+</script>
+<script>
+    var dsqjs = new DisqusJS({
+        shortname: 'peropero',
+        siteName: 'blog.tinyume.com',
+        identifier: 'http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html',
+        url: 'http://blog.tinyume.com/archives/flask-bootstrap-pei-zhi-guo-nei-yuan.html',
+        title: 'flask-bootstrap 优雅配置国内加速源',
+        api: '',
+        apikey: 'DLgNmYM1g1PtZTXyeqzaTemAIyFtcfPkIJEx8rZj8L7A6qjIPQ3V6rpFtkYk7X8q',
+        admin: 'iyume',
+        adminLabel: '管理员'
+    });
+</script>
+</div>
+<style>
+    #disqus-comment{
+        background-color: #eee;
+        padding: 2pc;
+    }
+</style>
+
+            
+        </div>
+
+        <!-- Post Prev & Next Nav -->
+        <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/archives/ipad-8-kai-xiang.html" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/archives/bom-de-jie-shao.html" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+    </div>
+</div>
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/avatar.png" alt="黯梦萦辰's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        iyumelive@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <style>
+    .sidebar-iconfont {
+        display: block;
+        margin: 0px 0 -2px 2px;
+    }
+</style>
+<!--<p>theme.sidebar.homepage.icon</p>-->
+<ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+            <li>
+                <a href="mailto:iyumelive@gmail.com" rel="external nofollow noreferrer" target="_blank" title="Email Me">
+                    
+                    <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                    
+                    Email Me
+                </a>
+            </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+    <li id="sidebar-first-li">
+        <a href="/">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-home-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;主页
+        </a>
+    </li>
+    
+    
+
+    <!-- Archives  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-archive-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;归档
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2021/04/">四月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/03/">三月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2021/02/">二月 2021<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/12/">十二月 2020<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/11/">十一月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/07/">七月 2020<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/04/">四月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/03/">三月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/02/">二月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2020/01/">一月 2020<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/11/">十一月 2019<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/10/">十月 2019<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/09/">九月 2019<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2019/07/">七月 2019<span class="sidebar_archives-count">1</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Categories  -->
+    
+    <li class="dropdown">
+        <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+            
+            <i class="material-icons sidebar-material-icons"><img src="https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-category-0.svg" class="sidebar-iconfont"></i>
+            
+            &nbsp;分类
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/categories/代码/">代码<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/日常/">日常<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/categories/知识/">知识<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/categories/随想/">随想<span class="sidebar_archives-count">2</span></a>
+        </ul>
+    </li>
+    
+    
+
+    <!-- Pages  -->
+    
+    <li>
+        <a href="/laycomment.html" title="留言">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/laycomment-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;留言
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/links" title="友链">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-friends-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;友链
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/about" title="关于">
+            
+            <i class="material-icons sidebar-material-icons"><img src=https://cdn.jsdelivr.net/gh/iyume/static/hexo-blog/img/icon/sidebar-person-0.svg class=sidebar-iconfont></i>
+            
+            &nbsp;关于
+        </a>
+    </li>
+    
+    <li class="divider"></li>
+    
+    
+    <li>
+        <a href="/timeline" title="时间线">
+            
+            &nbsp;时间线
+        </a>
+    </li>
+    
+    
+    <li>
+        <a href="/kami" title="神之领域">
+            
+            &nbsp;神之领域
+        </a>
+    </li>
+    
+    
+
+    <!-- Article Number  -->
+    
+    <li>
+        <a href="#">
+            文章总数
+            <span class="sidebar-badge">22</span>
+        </a>
+    </li>
+    
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  rel='external nofollow' class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+    <!-- Paradox Footer Left Section -->
+    <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/furiyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/iyume" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+        <a href="https://t.me/iyumoe" rel="external nofollow noreferrer" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-telegram">
+                <span class="visuallyhidden">Telegram</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+    <!--Copyright-->
+    <div id="copyright">
+        Copyright&nbsp;©&nbsp;<span year></span>&nbsp;黯梦萦辰
+        
+        <br>
+        
+        <a href="https://github.com/iyume/hexo-blog/tree/gh-pages" rel="external nofollow noreferrer">Github</a> & <a href="https://www.jsdelivr.com/" rel="external nofollow noreferrer">jsDelivr</a> & <a href="https://www.cloudflare.com/" rel="external nofollow noreferrer">Cloudflare</a> | <a href="http://beian.miit.gov.cn/" rel="external nofollow noreferrer">粤ICP备2020138189号</a>
+        
+        <br>
+        <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+        <span class="post-count">&nbsp;|&nbsp;字数统计：33.6k</span>
+    </div>
+
+    <!-- Paradox Footer Right Section -->
+
+    <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+    <div class="mdl-mini-footer--right-section">
+        <div>
+            <div class="footer-develop-div">Powered by <a href="https://hexo.io" rel='external nofollow' target="_blank" class="footer-develop-a">Hexo</a></div>
+            <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" rel='external nofollow' target="_blank" class="footer-develop-a">Material</a></div>
+        </div>
+    </div>
+    
+    <script>
+        var now = new Date();
+
+        function createtime() {
+            var grt = new Date("07/01/2019 17:38:00"); //在此处修改你的建站时间
+            now.setTime(now.getTime() + 250);
+            days = (now - grt) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if (String(hnum).length == 1) {
+                hnum = "0" + hnum;
+            }
+            minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if (String(mnum).length == 1) {
+                mnum = "0" + mnum;
+            }
+            seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if (String(snum).length == 1) {
+                snum = "0" + snum;
+            }
+            document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+            document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+        }
+        setInterval("createtime()", 250);
+
+    </script>
+
+
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+   <!-- 使用 DISQUS js 代码 -->
+<!-- <script id="dsq-count-scr" src="//peropero.disqus.com/count.js" async></script> -->
+<script id="dsq-count-scr" src="https://c.disquscdn.com/count.js" async></script>
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+    
+        <script>lsloader.load("hanabi","/js/hanabi-browser-bundle.js?Pki5+pzkluqu53g+ouMWpA==", true)</script>
+    
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+        
+        
+        HanabiBrowser.start('pre code',false);
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 2018;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+    <script type="text/javascript" src="/js/funnytitle.js"></script>
+<!--
+    <script type="text/javascript" color="255,255,255" opacity='1' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+-->
+
+<!-- <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 9999999; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script> -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
+
+<!-- require APlayer -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<!-- require MetingJS -->
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+</html>
